@@ -12,6 +12,31 @@ import (
 	"syscall"
 )
 
+// - StrategyTask interface
+type StrategyTaskInterface interface {
+	// Run method: execute the command and wait for it to finish.
+	// no pid stored
+	// low flexibility in control
+	// * not recommended
+	Run(arg ... string) error
+	// Start method: start the command and store the PID in the pid field
+	// high flexibility in control
+	// * recommended
+	Start(arg ... string) error
+	// CheckRunning method: if the StrategyTask is running in system by pid check.
+	// - Attention: the pid field is an interface{}
+	// pid is an int, but it could be nil if the process is not running
+	CheckRunning() (interface{}, error)
+	// Wait4 method: wait for the cmd change state and return error if any
+	// + Is it really needed?
+	Wait4() error
+	// Stop method: stop the command and set the pid field to nil
+	Stop() error
+	// GetPid method: return the PID stored in the pid field
+	GetPid() interface{}
+}
+
+
 // - StrategyTask struct
 type StrategyTask struct {
 	ID             string
@@ -118,4 +143,9 @@ func (st *StrategyTask) Stop() error {
 // - GetPid method: return the PID stored in the pid field
 func (st *StrategyTask) GetPid() (interface{}) {
 	return st.pid
+}
+
+// - SetPid method: set the PID stored in the pid field
+func (st *StrategyTask) SetPid(pid interface{}) {
+	st.pid = pid
 }

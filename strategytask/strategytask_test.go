@@ -13,6 +13,7 @@ func TestNew(t *testing.T) {
 	// turn id to string
 
 	binaryLocation := "./tasks/task"
+	// + the task is a binary file that say "Hello, World! XX" every second for 1 minute
 	// binaryLocation1 := "../tasks/task"
 	st := NewStrategyTask(id, binaryLocation)
 	// st1 := NewStrategyTask(id, binaryLocation1)

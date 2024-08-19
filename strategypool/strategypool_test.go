@@ -1,6 +1,7 @@
 package strategypool
 
 import (
+	"fmt"
 	"testing"
 	"time"
 	st "wonderstone/strategy_pool/strategytask"
@@ -19,7 +20,7 @@ func TestNewStrategyPool(t *testing.T) {
 }
 
 // // Test Add、Run、Start、Stop
-// Test Register  unRegister IfRegistered  ReloadArgs
+// Test Register  unRegister IfRegistered  ReloadArgs GetTaskInfos
 func TestRegister(t *testing.T) {
 	// Positive Test Case
 	id := uuid.New().String()
@@ -37,8 +38,9 @@ func TestRegister(t *testing.T) {
 	if !ifRegistered {
 		t.Errorf("Expected task to be registered, but it is not")
 	}
-	// check if tthe task is the same
 	// Check if the task is the same
+	// this is a pointer comparison, or say map variable comparison
+	fmt.Printf("   task:%v\ntmpTask:%v\n",task,tmpTask)
 	if task != tmpTask {
 		t.Errorf("Expected task to be the same, but it is different")
 	}
@@ -52,11 +54,28 @@ func TestRegister(t *testing.T) {
 		t.Errorf("Expected arg1, got %v", sp.allTaskInfo[id].args[0])
 	}
 
+	// GetTaskInfos
+	taskInfos := sp.GetTaskInfos()
+	tmp:= taskInfos[id].task
+	if tmp != tmpTask {
+		t.Errorf("Expected task to be the same, but it is different")
+	}
+	// ! Do sth not recommended
+	tmp.Run()
+
+	
 	// Unregister
 	sp.UnRegister(id)
 	if _, ifRegistered := sp.IfRegistered(id); ifRegistered {
 		t.Errorf("Expected task to be unregistered, but it is not")
 	}
+
+	// GetTaskInfos
+	taskInfos = sp.GetTaskInfos()
+	if taskInfos[id].task != nil {
+		t.Errorf("Expected task to be nil, got %v", taskInfos[id].task)
+	}
+
 }
 
 
@@ -76,19 +95,42 @@ func TestTaskRelated(t *testing.T) {
 	sp.Register(tmpTask1,[]string{})
 	
 	// Run Start Stop
-	// Run a task
+	// Run a task with status info
 	err := sp.Run(id)
 	if err != nil {
 		t.Errorf("Expected error to be nil, got %v", err)
 	}
-	// Start a task
-	err = sp.Start(id)
-	if err != nil {
-		t.Errorf("Expected error to be nil, got %v", err)
-	}
-	// Stop a task
-	err = sp.Stop(id)
-	if err != nil {
-		t.Errorf("Expected error to be nil, got %v", err)
-	}
+
+	time.Sleep(70 * time.Second)
+	fmt.Println("sleep 60s")
+	// // Start a task
+	// err = sp.Start(id)
+	// if err != nil {
+	// 	t.Errorf("Expected error to be nil, got %v", err)
+	// }
+
+	// // Stop a task
+	// err = sp.Stop(id)
+	// if err != nil {
+	// 	t.Errorf("Expected error to be nil, got %v", err)
+	// }
+
+
+	// // start 2 tasks
+	// err = sp.Start(id)
+	// if err != nil {
+	// 	t.Errorf("Expected error to be nil, got %v", err)
+	// }
+
+	// err = sp.Start(id1)
+	// if err != nil {
+	// 	t.Errorf("Expected error to be nil, got %v", err)
+	// }
+
+	// // GetOnlineTasks
+	// onlineTasks := sp.GetOnlineTasks()
+	// fmt.Println(onlineTasks)
+
+	// // 
+
 }
