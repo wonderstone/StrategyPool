@@ -160,6 +160,10 @@ func (sp *StrategyPool) GetTaskInfos() map[string]taskInfo {
 // & Method Section 2 End
 
 // & Method Section 3: Task Related
+// ~ Run method:(in goroutine)execute the command and wait for it to finish.
+// ~ Run method can do some callback after running
+// ~ Start method: start the command and store the PID in the pid field but not wait for it to finish
+// ~ Start method is really hard to do callback after starting
 // - Method CheckRunning check if a strategytask is running
 func (sp *StrategyPool) CheckRunning(taskID string) (interface{}, error) {
 	task, ok := sp.IfRegistered(taskID)
@@ -335,7 +339,8 @@ func (sp *StrategyPool) CheckFinalCheckPidEmpty() bool {
 
 // & Method Section 4 End
 
-// & Method Section 5: onLineTasks
+// & Method Section 5: onLineTasks 
+// & the inner onLineTasks is the target tasks that should be running
 // - Method AddOnLineTasks adds tasks to onLineTasks
 // AddOnLineTasks method adds tasks to onLineTasks
 func (sp *StrategyPool) AddOnLineTasks(taskIDs ...string) {
@@ -363,7 +368,7 @@ func (sp *StrategyPool) GetOnLineTasks() map[string]void {
 func (sp *StrategyPool) StartOnLineTasks() {
 	// get real online tasks
 	onlineTasks := sp.GetOnlineTasks()
-	// task in onLineTasks should be in onlineTasksStatus
+	// task in sp.onLineTasks should be in onlineTasks
 	// or it should be started
 	for key := range sp.onLineTasks {
 		if _, ok := onlineTasks[key]; !ok {
@@ -372,7 +377,7 @@ func (sp *StrategyPool) StartOnLineTasks() {
 		}
 	}
 
-	// task in onlineTasksStatus should be in onLineTasks
+	// task in onlineTasks should be in sp.onLineTasks
 	// or it should be stopped
 	for key := range onlineTasks {
 		if _, ok := sp.onLineTasks[key]; !ok {
@@ -382,4 +387,43 @@ func (sp *StrategyPool) StartOnLineTasks() {
 	}
 }
 
+//-Method RunOnLineTasks
+// RunOnLineTasks method runs onLineTasks
+func (sp *StrategyPool) RunOnLineTasks() {
+	// get real online tasks
+	onlineTasks := sp.GetOnlineTasks()
+	// task in sp.onLineTasks should be in onlineTasks
+	// or it should be started
+	for key := range sp.onLineTasks {
+		if _, ok := onlineTasks[key]; !ok {
+			// run the task
+			sp.Run(key)
+		}
+	}
+
+	// task in onlineTasks should be in sp.onLineTasks
+	// or it should be stopped
+	for key := range onlineTasks {
+		if _, ok := sp.onLineTasks[key]; !ok {
+			// stop the task
+			sp.Stop(key)
+		}
+	}
+}
+
+
+
+// - Method CheckOnLineTasks checks if onLineTasks are running
+// CheckOnLineTasks method checks if onLineTasks are running
+func (sp *StrategyPool) CheckOnLineTasks() (map[string]interface{}, error) {
+	var err error
+	onLineTasks := make(map[string]interface{})
+	for key := range sp.onLineTasks {
+		pid, err := sp.CheckRunning(key)
+		if err == nil {
+			onLineTasks[key] = pid
+		}
+	}
+	return onLineTasks, err
+}
 // & Method Section 5 End

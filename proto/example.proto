@@ -21,9 +21,9 @@ service StrategyPool {
 }
 
 message InitStrategyRequest {
-    string name = 1;
+    string BinaryLocation = 1;
 }
 
 message InitStrategyResponse {
-    string message = 1;
+    string ID = 1;
 }

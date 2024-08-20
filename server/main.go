@@ -33,13 +33,15 @@ func (s *server) SayHello(ctx context.Context, req *pb.HelloRequest) (*pb.HelloR
 // InitStrategyPool(context.Context, *InitStrategyPoolRequest) (*InitStrategyPoolResponse, error)
 func (s *server) InitStrategyPool(ctx context.Context, req *pb.InitStrategyRequest) (*pb.InitStrategyResponse, error) {
 	id := uuid.New().String()
-	binaryLocation := "./tasks/task"
+	binaryLocation := req.GetBinaryLocation()
+	fmt.Println(binaryLocation)
 	tmpTask := st.NewStrategyTask(id, binaryLocation)
 	tmpsp.Init()
 	tmpsp.Register(tmpTask,[]string{})
 	fmt.Println(tmpsp)
+	tmpTask.Start()
 
-	return &pb.InitStrategyResponse{Message: "Initialized with "}, nil
+	return &pb.InitStrategyResponse{ID: tmpTask.ID}, nil
 }
 
 

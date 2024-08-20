@@ -12,7 +12,7 @@ import (
 )
 
 func main() {
-	conn, err := grpc.Dial(":8080", grpc.WithTransportCredentials(insecure.NewCredentials()))
+	conn, err := grpc.NewClient(":8080", grpc.WithTransportCredentials(insecure.NewCredentials()))
 	if err != nil {
 		log.Fatalf("Failed to connect: %v", err)
 	}
@@ -28,11 +28,11 @@ func main() {
 	log.Printf("Message: %s", resp.GetMessage())
 
 	c2 := pb.NewStrategyPoolClient(conn)
-	resp2, err := c2.InitStrategyPool(context.Background(), &pb.InitStrategyRequest{ })
+	resp2, err := c2.InitStrategyPool(context.Background(), &pb.InitStrategyRequest{BinaryLocation: "./tasks/task"})
 	if err != nil {
 		log.Fatalf("Failed to call InitStrategyPool: %v", err)
 	}
 
-	log.Printf("Message: %s", resp2.GetMessage())
+	log.Printf("Message: %s", resp2.GetID())
 
 }
