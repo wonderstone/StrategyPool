@@ -7,11 +7,9 @@ import (
 	"net"
 	"time"
 	sp "wonderstone/strategy_pool/strategypool"
-	st "wonderstone/strategy_pool/strategytask"
 
 	pb "wonderstone/strategy_pool/example"
 
-	"github.com/google/uuid"
 	"google.golang.org/grpc"
 )
 
@@ -30,21 +28,8 @@ func (s *server) SayHello(ctx context.Context, req *pb.HelloRequest) (*pb.HelloR
 	return &pb.HelloResponse{Message: "Hello " + req.GetName()}, nil
 }
 
-// InitStrategyPool(context.Context, *InitStrategyPoolRequest) (*InitStrategyPoolResponse, error)
-func (s *server) InitStrategyPool(ctx context.Context, req *pb.InitStrategyRequest) (*pb.InitStrategyResponse, error) {
-	id := uuid.New().String()
-	binaryLocation := req.GetBinaryLocation()
-	fmt.Println(binaryLocation)
-	tmpTask := st.NewStrategyTask(id, binaryLocation)
-	tmpsp.Init()
-	tmpsp.Register(tmpTask,[]string{})
-	fmt.Println(tmpsp)
-	tmpTask.Start()
 
-	return &pb.InitStrategyResponse{ID: tmpTask.ID}, nil
-}
-
-
+// check the strategy pool 
 func Printer(){
 	for {
 		time.Sleep(2 * time.Second)

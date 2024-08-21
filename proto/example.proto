@@ -18,12 +18,45 @@ message HelloResponse {
 
 service StrategyPool {
     rpc InitStrategyPool (InitStrategyRequest) returns (InitStrategyResponse) {}
+    rpc Register (RegisterRequest) returns (RegisterResponse) {}
+    // rpc UnRegister (UnregisterRequest) returns (UnregisterResponse) {}
+    // rpc IfRegistered (IfRegisteredRequest) returns (IfRegisteredResponse) {}
+    // rpc ReloadArgs (ReloadArgsRequest) returns (ReloadArgsResponse) {}
+    // rpc GetTaskInfos (GetTaskInfosRequest) returns (GetTaskInfosResponse) {}
+    // rpc CheckRunning (CheckRunningRequest) returns (CheckRunningResponse) {}
+    // rpc Run (RunRequest) returns (RunResponse) {}
+    // rpc Start (StartRequest) returns (StartResponse) {}
+    // rpc Stop (StopRequest) returns (StopResponse) {}
+    // rpc StopAll (StopAllRequest) returns (StopAllResponse) {}
+    // rpc GetTask (GetTaskInfoRequest) returns (GetTaskInfoResponse) {}
+    // rpc GetTaskStatus (GetTaskStatusRequest) returns (GetTaskStatusResponse) {}
+    // rpc GetOnlineTasks (GetOnlineTasksRequest) returns (GetOnlineTasksResponse) {}
+    // rpc GetOfflineTasks (GetOfflineTasksRequest) returns (GetOfflineTasksResponse) {}
+    // rpc CheckFinalCheckPids (CheckFinalCheckPidsRequest) returns (CheckFinalCheckPidsResponse) {}
+    // rpc CheckFinalCheckPidEmpty (CheckFinalCheckPidEmptyRequest) returns (CheckFinalCheckPidEmptyResponse) {}
+    // rpc AddOnLineTasks (AddOnLineTasksRequest) returns (AddOnLineTasksResponse) {}
+    // rpc RemoveOnLineTasks (RemoveOnLineTasksRequest) returns (RemoveOnLineTasksResponse) {}
+    // rpc GetOnLineTasks (GetOnLineTasksRequest) returns (GetOnLineTasksResponse) {}
+    // rpc StartOnLineTasks (StartOnLineTasksRequest) returns (StartOnLineTasksResponse) {}
+    // rpc RunOnLineTasks (RunOnLineTasksRequest) returns (RunOnLineTasksResponse) {}
+    // rpc CheckOnLineTasks (CheckOnLineTasksRequest) returns (CheckOnLineTasksResponse) {}
+
 }
 
 message InitStrategyRequest {
-    string BinaryLocation = 1;
 }
 
 message InitStrategyResponse {
+    string InitStatus = 1;
+}
+
+message RegisterRequest {
     string ID = 1;
+    string BinaryLocation = 2;
+    repeated string args = 3;
+}
+
+message RegisterResponse {
+    string RegisterStatus = 1;
+
 }
