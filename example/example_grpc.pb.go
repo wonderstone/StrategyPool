@@ -108,8 +108,32 @@ var Greeter_ServiceDesc = grpc.ServiceDesc{
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
 type StrategyPoolClient interface {
+	// ~ All pid info on the server should be restricted to the server
+	// & Method Section 1: InitStrategyPool
 	InitStrategyPool(ctx context.Context, in *InitStrategyRequest, opts ...grpc.CallOption) (*InitStrategyResponse, error)
+	// & Method Section 2: All-Task Map Related
 	Register(ctx context.Context, in *RegisterRequest, opts ...grpc.CallOption) (*RegisterResponse, error)
+	UnRegister(ctx context.Context, in *UnregisterRequest, opts ...grpc.CallOption) (*UnregisterResponse, error)
+	IfRegistered(ctx context.Context, in *IfRegisteredRequest, opts ...grpc.CallOption) (*IfRegisteredResponse, error)
+	ReloadArgs(ctx context.Context, in *ReloadArgsRequest, opts ...grpc.CallOption) (*ReloadArgsResponse, error)
+	GetTaskInfos(ctx context.Context, in *GetTaskInfosRequest, opts ...grpc.CallOption) (*GetTaskInfosResponse, error)
+	// & Method Section 3: Task Related
+	CheckRunning(ctx context.Context, in *CheckRunningRequest, opts ...grpc.CallOption) (*CheckRunningResponse, error)
+	Run(ctx context.Context, in *RunRequest, opts ...grpc.CallOption) (*RunResponse, error)
+	Start(ctx context.Context, in *StartRequest, opts ...grpc.CallOption) (*StartResponse, error)
+	Stop(ctx context.Context, in *StopRequest, opts ...grpc.CallOption) (*StopResponse, error)
+	StopAll(ctx context.Context, in *StopAllRequest, opts ...grpc.CallOption) (*StopAllResponse, error)
+	GetTask(ctx context.Context, in *GetTaskInfoRequest, opts ...grpc.CallOption) (*GetTaskInfoResponse, error)
+	GetTaskStatus(ctx context.Context, in *GetTaskStatusRequest, opts ...grpc.CallOption) (*GetTaskStatusResponse, error)
+	GetOnlineTasks(ctx context.Context, in *GetOnlineTasksRequest, opts ...grpc.CallOption) (*GetOnlineTasksResponse, error)
+	GetOfflineTasks(ctx context.Context, in *GetOfflineTasksRequest, opts ...grpc.CallOption) (*GetOfflineTasksResponse, error)
+	// & Method Section 5: onLineTasks
+	AddOnLineTasks(ctx context.Context, in *AddOnLineTasksRequest, opts ...grpc.CallOption) (*AddOnLineTasksResponse, error)
+	RemoveOnLineTasks(ctx context.Context, in *RemoveOnLineTasksRequest, opts ...grpc.CallOption) (*RemoveOnLineTasksResponse, error)
+	GetOnLineTasks(ctx context.Context, in *GetOnLineTasksRequest, opts ...grpc.CallOption) (*GetOnLineTasksResponse, error)
+	StartOnLineTasks(ctx context.Context, in *StartOnLineTasksRequest, opts ...grpc.CallOption) (*StartOnLineTasksResponse, error)
+	RunOnLineTasks(ctx context.Context, in *RunOnLineTasksRequest, opts ...grpc.CallOption) (*RunOnLineTasksResponse, error)
+	CheckOnLineTasks(ctx context.Context, in *CheckOnLineTasksRequest, opts ...grpc.CallOption) (*CheckOnLineTasksResponse, error)
 }
 
 type strategyPoolClient struct {
@@ -138,12 +162,207 @@ func (c *strategyPoolClient) Register(ctx context.Context, in *RegisterRequest, 
 	return out, nil
 }
 
+func (c *strategyPoolClient) UnRegister(ctx context.Context, in *UnregisterRequest, opts ...grpc.CallOption) (*UnregisterResponse, error) {
+	out := new(UnregisterResponse)
+	err := c.cc.Invoke(ctx, "/example.StrategyPool/UnRegister", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strategyPoolClient) IfRegistered(ctx context.Context, in *IfRegisteredRequest, opts ...grpc.CallOption) (*IfRegisteredResponse, error) {
+	out := new(IfRegisteredResponse)
+	err := c.cc.Invoke(ctx, "/example.StrategyPool/IfRegistered", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strategyPoolClient) ReloadArgs(ctx context.Context, in *ReloadArgsRequest, opts ...grpc.CallOption) (*ReloadArgsResponse, error) {
+	out := new(ReloadArgsResponse)
+	err := c.cc.Invoke(ctx, "/example.StrategyPool/ReloadArgs", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strategyPoolClient) GetTaskInfos(ctx context.Context, in *GetTaskInfosRequest, opts ...grpc.CallOption) (*GetTaskInfosResponse, error) {
+	out := new(GetTaskInfosResponse)
+	err := c.cc.Invoke(ctx, "/example.StrategyPool/GetTaskInfos", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strategyPoolClient) CheckRunning(ctx context.Context, in *CheckRunningRequest, opts ...grpc.CallOption) (*CheckRunningResponse, error) {
+	out := new(CheckRunningResponse)
+	err := c.cc.Invoke(ctx, "/example.StrategyPool/CheckRunning", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strategyPoolClient) Run(ctx context.Context, in *RunRequest, opts ...grpc.CallOption) (*RunResponse, error) {
+	out := new(RunResponse)
+	err := c.cc.Invoke(ctx, "/example.StrategyPool/Run", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strategyPoolClient) Start(ctx context.Context, in *StartRequest, opts ...grpc.CallOption) (*StartResponse, error) {
+	out := new(StartResponse)
+	err := c.cc.Invoke(ctx, "/example.StrategyPool/Start", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strategyPoolClient) Stop(ctx context.Context, in *StopRequest, opts ...grpc.CallOption) (*StopResponse, error) {
+	out := new(StopResponse)
+	err := c.cc.Invoke(ctx, "/example.StrategyPool/Stop", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strategyPoolClient) StopAll(ctx context.Context, in *StopAllRequest, opts ...grpc.CallOption) (*StopAllResponse, error) {
+	out := new(StopAllResponse)
+	err := c.cc.Invoke(ctx, "/example.StrategyPool/StopAll", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strategyPoolClient) GetTask(ctx context.Context, in *GetTaskInfoRequest, opts ...grpc.CallOption) (*GetTaskInfoResponse, error) {
+	out := new(GetTaskInfoResponse)
+	err := c.cc.Invoke(ctx, "/example.StrategyPool/GetTask", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strategyPoolClient) GetTaskStatus(ctx context.Context, in *GetTaskStatusRequest, opts ...grpc.CallOption) (*GetTaskStatusResponse, error) {
+	out := new(GetTaskStatusResponse)
+	err := c.cc.Invoke(ctx, "/example.StrategyPool/GetTaskStatus", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strategyPoolClient) GetOnlineTasks(ctx context.Context, in *GetOnlineTasksRequest, opts ...grpc.CallOption) (*GetOnlineTasksResponse, error) {
+	out := new(GetOnlineTasksResponse)
+	err := c.cc.Invoke(ctx, "/example.StrategyPool/GetOnlineTasks", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strategyPoolClient) GetOfflineTasks(ctx context.Context, in *GetOfflineTasksRequest, opts ...grpc.CallOption) (*GetOfflineTasksResponse, error) {
+	out := new(GetOfflineTasksResponse)
+	err := c.cc.Invoke(ctx, "/example.StrategyPool/GetOfflineTasks", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strategyPoolClient) AddOnLineTasks(ctx context.Context, in *AddOnLineTasksRequest, opts ...grpc.CallOption) (*AddOnLineTasksResponse, error) {
+	out := new(AddOnLineTasksResponse)
+	err := c.cc.Invoke(ctx, "/example.StrategyPool/AddOnLineTasks", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strategyPoolClient) RemoveOnLineTasks(ctx context.Context, in *RemoveOnLineTasksRequest, opts ...grpc.CallOption) (*RemoveOnLineTasksResponse, error) {
+	out := new(RemoveOnLineTasksResponse)
+	err := c.cc.Invoke(ctx, "/example.StrategyPool/RemoveOnLineTasks", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strategyPoolClient) GetOnLineTasks(ctx context.Context, in *GetOnLineTasksRequest, opts ...grpc.CallOption) (*GetOnLineTasksResponse, error) {
+	out := new(GetOnLineTasksResponse)
+	err := c.cc.Invoke(ctx, "/example.StrategyPool/GetOnLineTasks", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strategyPoolClient) StartOnLineTasks(ctx context.Context, in *StartOnLineTasksRequest, opts ...grpc.CallOption) (*StartOnLineTasksResponse, error) {
+	out := new(StartOnLineTasksResponse)
+	err := c.cc.Invoke(ctx, "/example.StrategyPool/StartOnLineTasks", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strategyPoolClient) RunOnLineTasks(ctx context.Context, in *RunOnLineTasksRequest, opts ...grpc.CallOption) (*RunOnLineTasksResponse, error) {
+	out := new(RunOnLineTasksResponse)
+	err := c.cc.Invoke(ctx, "/example.StrategyPool/RunOnLineTasks", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
+func (c *strategyPoolClient) CheckOnLineTasks(ctx context.Context, in *CheckOnLineTasksRequest, opts ...grpc.CallOption) (*CheckOnLineTasksResponse, error) {
+	out := new(CheckOnLineTasksResponse)
+	err := c.cc.Invoke(ctx, "/example.StrategyPool/CheckOnLineTasks", in, out, opts...)
+	if err != nil {
+		return nil, err
+	}
+	return out, nil
+}
+
 // StrategyPoolServer is the server API for StrategyPool service.
 // All implementations must embed UnimplementedStrategyPoolServer
 // for forward compatibility
 type StrategyPoolServer interface {
+	// ~ All pid info on the server should be restricted to the server
+	// & Method Section 1: InitStrategyPool
 	InitStrategyPool(context.Context, *InitStrategyRequest) (*InitStrategyResponse, error)
+	// & Method Section 2: All-Task Map Related
 	Register(context.Context, *RegisterRequest) (*RegisterResponse, error)
+	UnRegister(context.Context, *UnregisterRequest) (*UnregisterResponse, error)
+	IfRegistered(context.Context, *IfRegisteredRequest) (*IfRegisteredResponse, error)
+	ReloadArgs(context.Context, *ReloadArgsRequest) (*ReloadArgsResponse, error)
+	GetTaskInfos(context.Context, *GetTaskInfosRequest) (*GetTaskInfosResponse, error)
+	// & Method Section 3: Task Related
+	CheckRunning(context.Context, *CheckRunningRequest) (*CheckRunningResponse, error)
+	Run(context.Context, *RunRequest) (*RunResponse, error)
+	Start(context.Context, *StartRequest) (*StartResponse, error)
+	Stop(context.Context, *StopRequest) (*StopResponse, error)
+	StopAll(context.Context, *StopAllRequest) (*StopAllResponse, error)
+	GetTask(context.Context, *GetTaskInfoRequest) (*GetTaskInfoResponse, error)
+	GetTaskStatus(context.Context, *GetTaskStatusRequest) (*GetTaskStatusResponse, error)
+	GetOnlineTasks(context.Context, *GetOnlineTasksRequest) (*GetOnlineTasksResponse, error)
+	GetOfflineTasks(context.Context, *GetOfflineTasksRequest) (*GetOfflineTasksResponse, error)
+	// & Method Section 5: onLineTasks
+	AddOnLineTasks(context.Context, *AddOnLineTasksRequest) (*AddOnLineTasksResponse, error)
+	RemoveOnLineTasks(context.Context, *RemoveOnLineTasksRequest) (*RemoveOnLineTasksResponse, error)
+	GetOnLineTasks(context.Context, *GetOnLineTasksRequest) (*GetOnLineTasksResponse, error)
+	StartOnLineTasks(context.Context, *StartOnLineTasksRequest) (*StartOnLineTasksResponse, error)
+	RunOnLineTasks(context.Context, *RunOnLineTasksRequest) (*RunOnLineTasksResponse, error)
+	CheckOnLineTasks(context.Context, *CheckOnLineTasksRequest) (*CheckOnLineTasksResponse, error)
 	mustEmbedUnimplementedStrategyPoolServer()
 }
 
@@ -156,6 +375,63 @@ func (UnimplementedStrategyPoolServer) InitStrategyPool(context.Context, *InitSt
 }
 func (UnimplementedStrategyPoolServer) Register(context.Context, *RegisterRequest) (*RegisterResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Register not implemented")
+}
+func (UnimplementedStrategyPoolServer) UnRegister(context.Context, *UnregisterRequest) (*UnregisterResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method UnRegister not implemented")
+}
+func (UnimplementedStrategyPoolServer) IfRegistered(context.Context, *IfRegisteredRequest) (*IfRegisteredResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method IfRegistered not implemented")
+}
+func (UnimplementedStrategyPoolServer) ReloadArgs(context.Context, *ReloadArgsRequest) (*ReloadArgsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ReloadArgs not implemented")
+}
+func (UnimplementedStrategyPoolServer) GetTaskInfos(context.Context, *GetTaskInfosRequest) (*GetTaskInfosResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTaskInfos not implemented")
+}
+func (UnimplementedStrategyPoolServer) CheckRunning(context.Context, *CheckRunningRequest) (*CheckRunningResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckRunning not implemented")
+}
+func (UnimplementedStrategyPoolServer) Run(context.Context, *RunRequest) (*RunResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Run not implemented")
+}
+func (UnimplementedStrategyPoolServer) Start(context.Context, *StartRequest) (*StartResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Start not implemented")
+}
+func (UnimplementedStrategyPoolServer) Stop(context.Context, *StopRequest) (*StopResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method Stop not implemented")
+}
+func (UnimplementedStrategyPoolServer) StopAll(context.Context, *StopAllRequest) (*StopAllResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method StopAll not implemented")
+}
+func (UnimplementedStrategyPoolServer) GetTask(context.Context, *GetTaskInfoRequest) (*GetTaskInfoResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTask not implemented")
+}
+func (UnimplementedStrategyPoolServer) GetTaskStatus(context.Context, *GetTaskStatusRequest) (*GetTaskStatusResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetTaskStatus not implemented")
+}
+func (UnimplementedStrategyPoolServer) GetOnlineTasks(context.Context, *GetOnlineTasksRequest) (*GetOnlineTasksResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOnlineTasks not implemented")
+}
+func (UnimplementedStrategyPoolServer) GetOfflineTasks(context.Context, *GetOfflineTasksRequest) (*GetOfflineTasksResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOfflineTasks not implemented")
+}
+func (UnimplementedStrategyPoolServer) AddOnLineTasks(context.Context, *AddOnLineTasksRequest) (*AddOnLineTasksResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method AddOnLineTasks not implemented")
+}
+func (UnimplementedStrategyPoolServer) RemoveOnLineTasks(context.Context, *RemoveOnLineTasksRequest) (*RemoveOnLineTasksResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RemoveOnLineTasks not implemented")
+}
+func (UnimplementedStrategyPoolServer) GetOnLineTasks(context.Context, *GetOnLineTasksRequest) (*GetOnLineTasksResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetOnLineTasks not implemented")
+}
+func (UnimplementedStrategyPoolServer) StartOnLineTasks(context.Context, *StartOnLineTasksRequest) (*StartOnLineTasksResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method StartOnLineTasks not implemented")
+}
+func (UnimplementedStrategyPoolServer) RunOnLineTasks(context.Context, *RunOnLineTasksRequest) (*RunOnLineTasksResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method RunOnLineTasks not implemented")
+}
+func (UnimplementedStrategyPoolServer) CheckOnLineTasks(context.Context, *CheckOnLineTasksRequest) (*CheckOnLineTasksResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method CheckOnLineTasks not implemented")
 }
 func (UnimplementedStrategyPoolServer) mustEmbedUnimplementedStrategyPoolServer() {}
 
@@ -206,6 +482,348 @@ func _StrategyPool_Register_Handler(srv interface{}, ctx context.Context, dec fu
 	return interceptor(ctx, in, info, handler)
 }
 
+func _StrategyPool_UnRegister_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(UnregisterRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrategyPoolServer).UnRegister(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/example.StrategyPool/UnRegister",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrategyPoolServer).UnRegister(ctx, req.(*UnregisterRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrategyPool_IfRegistered_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(IfRegisteredRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrategyPoolServer).IfRegistered(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/example.StrategyPool/IfRegistered",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrategyPoolServer).IfRegistered(ctx, req.(*IfRegisteredRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrategyPool_ReloadArgs_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ReloadArgsRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrategyPoolServer).ReloadArgs(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/example.StrategyPool/ReloadArgs",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrategyPoolServer).ReloadArgs(ctx, req.(*ReloadArgsRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrategyPool_GetTaskInfos_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTaskInfosRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrategyPoolServer).GetTaskInfos(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/example.StrategyPool/GetTaskInfos",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrategyPoolServer).GetTaskInfos(ctx, req.(*GetTaskInfosRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrategyPool_CheckRunning_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckRunningRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrategyPoolServer).CheckRunning(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/example.StrategyPool/CheckRunning",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrategyPoolServer).CheckRunning(ctx, req.(*CheckRunningRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrategyPool_Run_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RunRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrategyPoolServer).Run(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/example.StrategyPool/Run",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrategyPoolServer).Run(ctx, req.(*RunRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrategyPool_Start_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrategyPoolServer).Start(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/example.StrategyPool/Start",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrategyPoolServer).Start(ctx, req.(*StartRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrategyPool_Stop_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StopRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrategyPoolServer).Stop(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/example.StrategyPool/Stop",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrategyPoolServer).Stop(ctx, req.(*StopRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrategyPool_StopAll_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StopAllRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrategyPoolServer).StopAll(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/example.StrategyPool/StopAll",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrategyPoolServer).StopAll(ctx, req.(*StopAllRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrategyPool_GetTask_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTaskInfoRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrategyPoolServer).GetTask(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/example.StrategyPool/GetTask",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrategyPoolServer).GetTask(ctx, req.(*GetTaskInfoRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrategyPool_GetTaskStatus_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetTaskStatusRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrategyPoolServer).GetTaskStatus(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/example.StrategyPool/GetTaskStatus",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrategyPoolServer).GetTaskStatus(ctx, req.(*GetTaskStatusRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrategyPool_GetOnlineTasks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOnlineTasksRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrategyPoolServer).GetOnlineTasks(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/example.StrategyPool/GetOnlineTasks",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrategyPoolServer).GetOnlineTasks(ctx, req.(*GetOnlineTasksRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrategyPool_GetOfflineTasks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOfflineTasksRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrategyPoolServer).GetOfflineTasks(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/example.StrategyPool/GetOfflineTasks",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrategyPoolServer).GetOfflineTasks(ctx, req.(*GetOfflineTasksRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrategyPool_AddOnLineTasks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(AddOnLineTasksRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrategyPoolServer).AddOnLineTasks(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/example.StrategyPool/AddOnLineTasks",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrategyPoolServer).AddOnLineTasks(ctx, req.(*AddOnLineTasksRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrategyPool_RemoveOnLineTasks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RemoveOnLineTasksRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrategyPoolServer).RemoveOnLineTasks(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/example.StrategyPool/RemoveOnLineTasks",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrategyPoolServer).RemoveOnLineTasks(ctx, req.(*RemoveOnLineTasksRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrategyPool_GetOnLineTasks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetOnLineTasksRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrategyPoolServer).GetOnLineTasks(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/example.StrategyPool/GetOnLineTasks",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrategyPoolServer).GetOnLineTasks(ctx, req.(*GetOnLineTasksRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrategyPool_StartOnLineTasks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(StartOnLineTasksRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrategyPoolServer).StartOnLineTasks(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/example.StrategyPool/StartOnLineTasks",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrategyPoolServer).StartOnLineTasks(ctx, req.(*StartOnLineTasksRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrategyPool_RunOnLineTasks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(RunOnLineTasksRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrategyPoolServer).RunOnLineTasks(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/example.StrategyPool/RunOnLineTasks",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrategyPoolServer).RunOnLineTasks(ctx, req.(*RunOnLineTasksRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
+func _StrategyPool_CheckOnLineTasks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(CheckOnLineTasksRequest)
+	if err := dec(in); err != nil {
+		return nil, err
+	}
+	if interceptor == nil {
+		return srv.(StrategyPoolServer).CheckOnLineTasks(ctx, in)
+	}
+	info := &grpc.UnaryServerInfo{
+		Server:     srv,
+		FullMethod: "/example.StrategyPool/CheckOnLineTasks",
+	}
+	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
+		return srv.(StrategyPoolServer).CheckOnLineTasks(ctx, req.(*CheckOnLineTasksRequest))
+	}
+	return interceptor(ctx, in, info, handler)
+}
+
 // StrategyPool_ServiceDesc is the grpc.ServiceDesc for StrategyPool service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
@@ -220,6 +838,82 @@ var StrategyPool_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Register",
 			Handler:    _StrategyPool_Register_Handler,
+		},
+		{
+			MethodName: "UnRegister",
+			Handler:    _StrategyPool_UnRegister_Handler,
+		},
+		{
+			MethodName: "IfRegistered",
+			Handler:    _StrategyPool_IfRegistered_Handler,
+		},
+		{
+			MethodName: "ReloadArgs",
+			Handler:    _StrategyPool_ReloadArgs_Handler,
+		},
+		{
+			MethodName: "GetTaskInfos",
+			Handler:    _StrategyPool_GetTaskInfos_Handler,
+		},
+		{
+			MethodName: "CheckRunning",
+			Handler:    _StrategyPool_CheckRunning_Handler,
+		},
+		{
+			MethodName: "Run",
+			Handler:    _StrategyPool_Run_Handler,
+		},
+		{
+			MethodName: "Start",
+			Handler:    _StrategyPool_Start_Handler,
+		},
+		{
+			MethodName: "Stop",
+			Handler:    _StrategyPool_Stop_Handler,
+		},
+		{
+			MethodName: "StopAll",
+			Handler:    _StrategyPool_StopAll_Handler,
+		},
+		{
+			MethodName: "GetTask",
+			Handler:    _StrategyPool_GetTask_Handler,
+		},
+		{
+			MethodName: "GetTaskStatus",
+			Handler:    _StrategyPool_GetTaskStatus_Handler,
+		},
+		{
+			MethodName: "GetOnlineTasks",
+			Handler:    _StrategyPool_GetOnlineTasks_Handler,
+		},
+		{
+			MethodName: "GetOfflineTasks",
+			Handler:    _StrategyPool_GetOfflineTasks_Handler,
+		},
+		{
+			MethodName: "AddOnLineTasks",
+			Handler:    _StrategyPool_AddOnLineTasks_Handler,
+		},
+		{
+			MethodName: "RemoveOnLineTasks",
+			Handler:    _StrategyPool_RemoveOnLineTasks_Handler,
+		},
+		{
+			MethodName: "GetOnLineTasks",
+			Handler:    _StrategyPool_GetOnLineTasks_Handler,
+		},
+		{
+			MethodName: "StartOnLineTasks",
+			Handler:    _StrategyPool_StartOnLineTasks_Handler,
+		},
+		{
+			MethodName: "RunOnLineTasks",
+			Handler:    _StrategyPool_RunOnLineTasks_Handler,
+		},
+		{
+			MethodName: "CheckOnLineTasks",
+			Handler:    _StrategyPool_CheckOnLineTasks_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

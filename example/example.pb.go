@@ -309,6 +309,1799 @@ func (x *RegisterResponse) GetRegisterStatus() string {
 	return ""
 }
 
+type UnregisterRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ID string `protobuf:"bytes,1,opt,name=ID,proto3" json:"ID,omitempty"`
+}
+
+func (x *UnregisterRequest) Reset() {
+	*x = UnregisterRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[6]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UnregisterRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterRequest) ProtoMessage() {}
+
+func (x *UnregisterRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[6]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterRequest.ProtoReflect.Descriptor instead.
+func (*UnregisterRequest) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{6}
+}
+
+func (x *UnregisterRequest) GetID() string {
+	if x != nil {
+		return x.ID
+	}
+	return ""
+}
+
+type UnregisterResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	UnregisterStatus string `protobuf:"bytes,1,opt,name=UnregisterStatus,proto3" json:"UnregisterStatus,omitempty"`
+}
+
+func (x *UnregisterResponse) Reset() {
+	*x = UnregisterResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[7]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *UnregisterResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*UnregisterResponse) ProtoMessage() {}
+
+func (x *UnregisterResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[7]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use UnregisterResponse.ProtoReflect.Descriptor instead.
+func (*UnregisterResponse) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{7}
+}
+
+func (x *UnregisterResponse) GetUnregisterStatus() string {
+	if x != nil {
+		return x.UnregisterStatus
+	}
+	return ""
+}
+
+type IfRegisteredRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ID string `protobuf:"bytes,1,opt,name=ID,proto3" json:"ID,omitempty"`
+}
+
+func (x *IfRegisteredRequest) Reset() {
+	*x = IfRegisteredRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[8]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IfRegisteredRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IfRegisteredRequest) ProtoMessage() {}
+
+func (x *IfRegisteredRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[8]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IfRegisteredRequest.ProtoReflect.Descriptor instead.
+func (*IfRegisteredRequest) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{8}
+}
+
+func (x *IfRegisteredRequest) GetID() string {
+	if x != nil {
+		return x.ID
+	}
+	return ""
+}
+
+type IfRegisteredResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	IfRegisteredStatus string `protobuf:"bytes,1,opt,name=IfRegisteredStatus,proto3" json:"IfRegisteredStatus,omitempty"`
+}
+
+func (x *IfRegisteredResponse) Reset() {
+	*x = IfRegisteredResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[9]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *IfRegisteredResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*IfRegisteredResponse) ProtoMessage() {}
+
+func (x *IfRegisteredResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[9]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use IfRegisteredResponse.ProtoReflect.Descriptor instead.
+func (*IfRegisteredResponse) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{9}
+}
+
+func (x *IfRegisteredResponse) GetIfRegisteredStatus() string {
+	if x != nil {
+		return x.IfRegisteredStatus
+	}
+	return ""
+}
+
+type ReloadArgsRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ID   string   `protobuf:"bytes,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	Args []string `protobuf:"bytes,2,rep,name=args,proto3" json:"args,omitempty"`
+}
+
+func (x *ReloadArgsRequest) Reset() {
+	*x = ReloadArgsRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[10]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ReloadArgsRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReloadArgsRequest) ProtoMessage() {}
+
+func (x *ReloadArgsRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[10]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReloadArgsRequest.ProtoReflect.Descriptor instead.
+func (*ReloadArgsRequest) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{10}
+}
+
+func (x *ReloadArgsRequest) GetID() string {
+	if x != nil {
+		return x.ID
+	}
+	return ""
+}
+
+func (x *ReloadArgsRequest) GetArgs() []string {
+	if x != nil {
+		return x.Args
+	}
+	return nil
+}
+
+type ReloadArgsResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ReloadArgsStatus string `protobuf:"bytes,1,opt,name=ReloadArgsStatus,proto3" json:"ReloadArgsStatus,omitempty"`
+}
+
+func (x *ReloadArgsResponse) Reset() {
+	*x = ReloadArgsResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[11]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ReloadArgsResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ReloadArgsResponse) ProtoMessage() {}
+
+func (x *ReloadArgsResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[11]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ReloadArgsResponse.ProtoReflect.Descriptor instead.
+func (*ReloadArgsResponse) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{11}
+}
+
+func (x *ReloadArgsResponse) GetReloadArgsStatus() string {
+	if x != nil {
+		return x.ReloadArgsStatus
+	}
+	return ""
+}
+
+type GetTaskInfosRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *GetTaskInfosRequest) Reset() {
+	*x = GetTaskInfosRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[12]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetTaskInfosRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTaskInfosRequest) ProtoMessage() {}
+
+func (x *GetTaskInfosRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[12]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTaskInfosRequest.ProtoReflect.Descriptor instead.
+func (*GetTaskInfosRequest) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{12}
+}
+
+type GetTaskInfosResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	TaskInfos []*TaskInfo `protobuf:"bytes,1,rep,name=taskInfos,proto3" json:"taskInfos,omitempty"`
+}
+
+func (x *GetTaskInfosResponse) Reset() {
+	*x = GetTaskInfosResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[13]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetTaskInfosResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTaskInfosResponse) ProtoMessage() {}
+
+func (x *GetTaskInfosResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[13]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTaskInfosResponse.ProtoReflect.Descriptor instead.
+func (*GetTaskInfosResponse) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{13}
+}
+
+func (x *GetTaskInfosResponse) GetTaskInfos() []*TaskInfo {
+	if x != nil {
+		return x.TaskInfos
+	}
+	return nil
+}
+
+type TaskInfo struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ID             string   `protobuf:"bytes,1,opt,name=ID,proto3" json:"ID,omitempty"`
+	BinaryLocation string   `protobuf:"bytes,2,opt,name=BinaryLocation,proto3" json:"BinaryLocation,omitempty"`
+	Args           []string `protobuf:"bytes,3,rep,name=args,proto3" json:"args,omitempty"`
+	Status         string   `protobuf:"bytes,4,opt,name=Status,proto3" json:"Status,omitempty"`
+}
+
+func (x *TaskInfo) Reset() {
+	*x = TaskInfo{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[14]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *TaskInfo) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*TaskInfo) ProtoMessage() {}
+
+func (x *TaskInfo) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[14]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use TaskInfo.ProtoReflect.Descriptor instead.
+func (*TaskInfo) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{14}
+}
+
+func (x *TaskInfo) GetID() string {
+	if x != nil {
+		return x.ID
+	}
+	return ""
+}
+
+func (x *TaskInfo) GetBinaryLocation() string {
+	if x != nil {
+		return x.BinaryLocation
+	}
+	return ""
+}
+
+func (x *TaskInfo) GetArgs() []string {
+	if x != nil {
+		return x.Args
+	}
+	return nil
+}
+
+func (x *TaskInfo) GetStatus() string {
+	if x != nil {
+		return x.Status
+	}
+	return ""
+}
+
+type GetTaskInfoRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ID string `protobuf:"bytes,1,opt,name=ID,proto3" json:"ID,omitempty"`
+}
+
+func (x *GetTaskInfoRequest) Reset() {
+	*x = GetTaskInfoRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[15]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetTaskInfoRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTaskInfoRequest) ProtoMessage() {}
+
+func (x *GetTaskInfoRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[15]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTaskInfoRequest.ProtoReflect.Descriptor instead.
+func (*GetTaskInfoRequest) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{15}
+}
+
+func (x *GetTaskInfoRequest) GetID() string {
+	if x != nil {
+		return x.ID
+	}
+	return ""
+}
+
+type GetTaskInfoResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	TaskInfo *TaskInfo `protobuf:"bytes,1,opt,name=taskInfo,proto3" json:"taskInfo,omitempty"`
+}
+
+func (x *GetTaskInfoResponse) Reset() {
+	*x = GetTaskInfoResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[16]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetTaskInfoResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTaskInfoResponse) ProtoMessage() {}
+
+func (x *GetTaskInfoResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[16]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTaskInfoResponse.ProtoReflect.Descriptor instead.
+func (*GetTaskInfoResponse) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{16}
+}
+
+func (x *GetTaskInfoResponse) GetTaskInfo() *TaskInfo {
+	if x != nil {
+		return x.TaskInfo
+	}
+	return nil
+}
+
+type CheckRunningRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ID string `protobuf:"bytes,1,opt,name=ID,proto3" json:"ID,omitempty"`
+}
+
+func (x *CheckRunningRequest) Reset() {
+	*x = CheckRunningRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[17]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CheckRunningRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CheckRunningRequest) ProtoMessage() {}
+
+func (x *CheckRunningRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[17]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CheckRunningRequest.ProtoReflect.Descriptor instead.
+func (*CheckRunningRequest) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{17}
+}
+
+func (x *CheckRunningRequest) GetID() string {
+	if x != nil {
+		return x.ID
+	}
+	return ""
+}
+
+type CheckRunningResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	CheckRunningStatus string `protobuf:"bytes,1,opt,name=CheckRunningStatus,proto3" json:"CheckRunningStatus,omitempty"`
+}
+
+func (x *CheckRunningResponse) Reset() {
+	*x = CheckRunningResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[18]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CheckRunningResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CheckRunningResponse) ProtoMessage() {}
+
+func (x *CheckRunningResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[18]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CheckRunningResponse.ProtoReflect.Descriptor instead.
+func (*CheckRunningResponse) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{18}
+}
+
+func (x *CheckRunningResponse) GetCheckRunningStatus() string {
+	if x != nil {
+		return x.CheckRunningStatus
+	}
+	return ""
+}
+
+type RunRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ID string `protobuf:"bytes,1,opt,name=ID,proto3" json:"ID,omitempty"`
+}
+
+func (x *RunRequest) Reset() {
+	*x = RunRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[19]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RunRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RunRequest) ProtoMessage() {}
+
+func (x *RunRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[19]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RunRequest.ProtoReflect.Descriptor instead.
+func (*RunRequest) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{19}
+}
+
+func (x *RunRequest) GetID() string {
+	if x != nil {
+		return x.ID
+	}
+	return ""
+}
+
+type RunResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	RunStatus string `protobuf:"bytes,1,opt,name=RunStatus,proto3" json:"RunStatus,omitempty"`
+}
+
+func (x *RunResponse) Reset() {
+	*x = RunResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[20]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RunResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RunResponse) ProtoMessage() {}
+
+func (x *RunResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[20]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RunResponse.ProtoReflect.Descriptor instead.
+func (*RunResponse) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{20}
+}
+
+func (x *RunResponse) GetRunStatus() string {
+	if x != nil {
+		return x.RunStatus
+	}
+	return ""
+}
+
+type StartRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ID string `protobuf:"bytes,1,opt,name=ID,proto3" json:"ID,omitempty"`
+}
+
+func (x *StartRequest) Reset() {
+	*x = StartRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[21]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *StartRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartRequest) ProtoMessage() {}
+
+func (x *StartRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[21]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartRequest.ProtoReflect.Descriptor instead.
+func (*StartRequest) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{21}
+}
+
+func (x *StartRequest) GetID() string {
+	if x != nil {
+		return x.ID
+	}
+	return ""
+}
+
+type StartResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	StartStatus string `protobuf:"bytes,1,opt,name=StartStatus,proto3" json:"StartStatus,omitempty"`
+}
+
+func (x *StartResponse) Reset() {
+	*x = StartResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[22]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *StartResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartResponse) ProtoMessage() {}
+
+func (x *StartResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[22]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartResponse.ProtoReflect.Descriptor instead.
+func (*StartResponse) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{22}
+}
+
+func (x *StartResponse) GetStartStatus() string {
+	if x != nil {
+		return x.StartStatus
+	}
+	return ""
+}
+
+type StopRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ID string `protobuf:"bytes,1,opt,name=ID,proto3" json:"ID,omitempty"`
+}
+
+func (x *StopRequest) Reset() {
+	*x = StopRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[23]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *StopRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StopRequest) ProtoMessage() {}
+
+func (x *StopRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[23]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StopRequest.ProtoReflect.Descriptor instead.
+func (*StopRequest) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{23}
+}
+
+func (x *StopRequest) GetID() string {
+	if x != nil {
+		return x.ID
+	}
+	return ""
+}
+
+type StopResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	StopStatus string `protobuf:"bytes,1,opt,name=StopStatus,proto3" json:"StopStatus,omitempty"`
+}
+
+func (x *StopResponse) Reset() {
+	*x = StopResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[24]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *StopResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StopResponse) ProtoMessage() {}
+
+func (x *StopResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[24]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StopResponse.ProtoReflect.Descriptor instead.
+func (*StopResponse) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{24}
+}
+
+func (x *StopResponse) GetStopStatus() string {
+	if x != nil {
+		return x.StopStatus
+	}
+	return ""
+}
+
+type StopAllRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *StopAllRequest) Reset() {
+	*x = StopAllRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[25]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *StopAllRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StopAllRequest) ProtoMessage() {}
+
+func (x *StopAllRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[25]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StopAllRequest.ProtoReflect.Descriptor instead.
+func (*StopAllRequest) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{25}
+}
+
+type StopAllResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	StopAllStatus string `protobuf:"bytes,1,opt,name=StopAllStatus,proto3" json:"StopAllStatus,omitempty"`
+}
+
+func (x *StopAllResponse) Reset() {
+	*x = StopAllResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[26]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *StopAllResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StopAllResponse) ProtoMessage() {}
+
+func (x *StopAllResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[26]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StopAllResponse.ProtoReflect.Descriptor instead.
+func (*StopAllResponse) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{26}
+}
+
+func (x *StopAllResponse) GetStopAllStatus() string {
+	if x != nil {
+		return x.StopAllStatus
+	}
+	return ""
+}
+
+type GetTaskStatusRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	ID string `protobuf:"bytes,1,opt,name=ID,proto3" json:"ID,omitempty"`
+}
+
+func (x *GetTaskStatusRequest) Reset() {
+	*x = GetTaskStatusRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[27]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetTaskStatusRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTaskStatusRequest) ProtoMessage() {}
+
+func (x *GetTaskStatusRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[27]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTaskStatusRequest.ProtoReflect.Descriptor instead.
+func (*GetTaskStatusRequest) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{27}
+}
+
+func (x *GetTaskStatusRequest) GetID() string {
+	if x != nil {
+		return x.ID
+	}
+	return ""
+}
+
+type GetTaskStatusResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Status string `protobuf:"bytes,1,opt,name=Status,proto3" json:"Status,omitempty"`
+}
+
+func (x *GetTaskStatusResponse) Reset() {
+	*x = GetTaskStatusResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[28]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetTaskStatusResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTaskStatusResponse) ProtoMessage() {}
+
+func (x *GetTaskStatusResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[28]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTaskStatusResponse.ProtoReflect.Descriptor instead.
+func (*GetTaskStatusResponse) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{28}
+}
+
+func (x *GetTaskStatusResponse) GetStatus() string {
+	if x != nil {
+		return x.Status
+	}
+	return ""
+}
+
+type GetOnlineTasksRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *GetOnlineTasksRequest) Reset() {
+	*x = GetOnlineTasksRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[29]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetOnlineTasksRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOnlineTasksRequest) ProtoMessage() {}
+
+func (x *GetOnlineTasksRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[29]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOnlineTasksRequest.ProtoReflect.Descriptor instead.
+func (*GetOnlineTasksRequest) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{29}
+}
+
+type GetOnlineTasksResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	OnlineTasks []string `protobuf:"bytes,1,rep,name=OnlineTasks,proto3" json:"OnlineTasks,omitempty"`
+}
+
+func (x *GetOnlineTasksResponse) Reset() {
+	*x = GetOnlineTasksResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[30]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetOnlineTasksResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOnlineTasksResponse) ProtoMessage() {}
+
+func (x *GetOnlineTasksResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[30]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOnlineTasksResponse.ProtoReflect.Descriptor instead.
+func (*GetOnlineTasksResponse) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{30}
+}
+
+func (x *GetOnlineTasksResponse) GetOnlineTasks() []string {
+	if x != nil {
+		return x.OnlineTasks
+	}
+	return nil
+}
+
+type GetOfflineTasksRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *GetOfflineTasksRequest) Reset() {
+	*x = GetOfflineTasksRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[31]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetOfflineTasksRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOfflineTasksRequest) ProtoMessage() {}
+
+func (x *GetOfflineTasksRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[31]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOfflineTasksRequest.ProtoReflect.Descriptor instead.
+func (*GetOfflineTasksRequest) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{31}
+}
+
+type GetOfflineTasksResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	OfflineTasks []string `protobuf:"bytes,1,rep,name=OfflineTasks,proto3" json:"OfflineTasks,omitempty"`
+}
+
+func (x *GetOfflineTasksResponse) Reset() {
+	*x = GetOfflineTasksResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[32]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetOfflineTasksResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOfflineTasksResponse) ProtoMessage() {}
+
+func (x *GetOfflineTasksResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[32]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOfflineTasksResponse.ProtoReflect.Descriptor instead.
+func (*GetOfflineTasksResponse) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{32}
+}
+
+func (x *GetOfflineTasksResponse) GetOfflineTasks() []string {
+	if x != nil {
+		return x.OfflineTasks
+	}
+	return nil
+}
+
+type AddOnLineTasksRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	IDs []string `protobuf:"bytes,1,rep,name=IDs,proto3" json:"IDs,omitempty"`
+}
+
+func (x *AddOnLineTasksRequest) Reset() {
+	*x = AddOnLineTasksRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[33]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AddOnLineTasksRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddOnLineTasksRequest) ProtoMessage() {}
+
+func (x *AddOnLineTasksRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[33]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddOnLineTasksRequest.ProtoReflect.Descriptor instead.
+func (*AddOnLineTasksRequest) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{33}
+}
+
+func (x *AddOnLineTasksRequest) GetIDs() []string {
+	if x != nil {
+		return x.IDs
+	}
+	return nil
+}
+
+type AddOnLineTasksResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	AddOnLineTasksStatus string `protobuf:"bytes,1,opt,name=AddOnLineTasksStatus,proto3" json:"AddOnLineTasksStatus,omitempty"`
+}
+
+func (x *AddOnLineTasksResponse) Reset() {
+	*x = AddOnLineTasksResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[34]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *AddOnLineTasksResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*AddOnLineTasksResponse) ProtoMessage() {}
+
+func (x *AddOnLineTasksResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[34]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use AddOnLineTasksResponse.ProtoReflect.Descriptor instead.
+func (*AddOnLineTasksResponse) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{34}
+}
+
+func (x *AddOnLineTasksResponse) GetAddOnLineTasksStatus() string {
+	if x != nil {
+		return x.AddOnLineTasksStatus
+	}
+	return ""
+}
+
+type RemoveOnLineTasksRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	IDs []string `protobuf:"bytes,1,rep,name=IDs,proto3" json:"IDs,omitempty"`
+}
+
+func (x *RemoveOnLineTasksRequest) Reset() {
+	*x = RemoveOnLineTasksRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[35]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RemoveOnLineTasksRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveOnLineTasksRequest) ProtoMessage() {}
+
+func (x *RemoveOnLineTasksRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[35]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveOnLineTasksRequest.ProtoReflect.Descriptor instead.
+func (*RemoveOnLineTasksRequest) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{35}
+}
+
+func (x *RemoveOnLineTasksRequest) GetIDs() []string {
+	if x != nil {
+		return x.IDs
+	}
+	return nil
+}
+
+type RemoveOnLineTasksResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	RemoveOnLineTasksStatus string `protobuf:"bytes,1,opt,name=RemoveOnLineTasksStatus,proto3" json:"RemoveOnLineTasksStatus,omitempty"`
+}
+
+func (x *RemoveOnLineTasksResponse) Reset() {
+	*x = RemoveOnLineTasksResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[36]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RemoveOnLineTasksResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RemoveOnLineTasksResponse) ProtoMessage() {}
+
+func (x *RemoveOnLineTasksResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[36]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RemoveOnLineTasksResponse.ProtoReflect.Descriptor instead.
+func (*RemoveOnLineTasksResponse) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{36}
+}
+
+func (x *RemoveOnLineTasksResponse) GetRemoveOnLineTasksStatus() string {
+	if x != nil {
+		return x.RemoveOnLineTasksStatus
+	}
+	return ""
+}
+
+type GetOnLineTasksRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *GetOnLineTasksRequest) Reset() {
+	*x = GetOnLineTasksRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[37]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetOnLineTasksRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOnLineTasksRequest) ProtoMessage() {}
+
+func (x *GetOnLineTasksRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[37]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOnLineTasksRequest.ProtoReflect.Descriptor instead.
+func (*GetOnLineTasksRequest) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{37}
+}
+
+type GetOnLineTasksResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	OnLineTasks []string `protobuf:"bytes,1,rep,name=OnLineTasks,proto3" json:"OnLineTasks,omitempty"`
+}
+
+func (x *GetOnLineTasksResponse) Reset() {
+	*x = GetOnLineTasksResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[38]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetOnLineTasksResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetOnLineTasksResponse) ProtoMessage() {}
+
+func (x *GetOnLineTasksResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[38]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetOnLineTasksResponse.ProtoReflect.Descriptor instead.
+func (*GetOnLineTasksResponse) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{38}
+}
+
+func (x *GetOnLineTasksResponse) GetOnLineTasks() []string {
+	if x != nil {
+		return x.OnLineTasks
+	}
+	return nil
+}
+
+type StartOnLineTasksRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *StartOnLineTasksRequest) Reset() {
+	*x = StartOnLineTasksRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[39]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *StartOnLineTasksRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartOnLineTasksRequest) ProtoMessage() {}
+
+func (x *StartOnLineTasksRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[39]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartOnLineTasksRequest.ProtoReflect.Descriptor instead.
+func (*StartOnLineTasksRequest) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{39}
+}
+
+type StartOnLineTasksResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	StartOnLineTasksStatus string `protobuf:"bytes,1,opt,name=StartOnLineTasksStatus,proto3" json:"StartOnLineTasksStatus,omitempty"`
+}
+
+func (x *StartOnLineTasksResponse) Reset() {
+	*x = StartOnLineTasksResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[40]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *StartOnLineTasksResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*StartOnLineTasksResponse) ProtoMessage() {}
+
+func (x *StartOnLineTasksResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[40]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use StartOnLineTasksResponse.ProtoReflect.Descriptor instead.
+func (*StartOnLineTasksResponse) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{40}
+}
+
+func (x *StartOnLineTasksResponse) GetStartOnLineTasksStatus() string {
+	if x != nil {
+		return x.StartOnLineTasksStatus
+	}
+	return ""
+}
+
+type RunOnLineTasksRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *RunOnLineTasksRequest) Reset() {
+	*x = RunOnLineTasksRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[41]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RunOnLineTasksRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RunOnLineTasksRequest) ProtoMessage() {}
+
+func (x *RunOnLineTasksRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[41]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RunOnLineTasksRequest.ProtoReflect.Descriptor instead.
+func (*RunOnLineTasksRequest) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{41}
+}
+
+type RunOnLineTasksResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	RunOnLineTasksStatus string `protobuf:"bytes,1,opt,name=RunOnLineTasksStatus,proto3" json:"RunOnLineTasksStatus,omitempty"`
+}
+
+func (x *RunOnLineTasksResponse) Reset() {
+	*x = RunOnLineTasksResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[42]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *RunOnLineTasksResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*RunOnLineTasksResponse) ProtoMessage() {}
+
+func (x *RunOnLineTasksResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[42]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use RunOnLineTasksResponse.ProtoReflect.Descriptor instead.
+func (*RunOnLineTasksResponse) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{42}
+}
+
+func (x *RunOnLineTasksResponse) GetRunOnLineTasksStatus() string {
+	if x != nil {
+		return x.RunOnLineTasksStatus
+	}
+	return ""
+}
+
+type CheckOnLineTasksRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *CheckOnLineTasksRequest) Reset() {
+	*x = CheckOnLineTasksRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[43]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CheckOnLineTasksRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CheckOnLineTasksRequest) ProtoMessage() {}
+
+func (x *CheckOnLineTasksRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[43]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CheckOnLineTasksRequest.ProtoReflect.Descriptor instead.
+func (*CheckOnLineTasksRequest) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{43}
+}
+
+type CheckOnLineTasksResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	CheckOnLineTasksStatus map[string]string `protobuf:"bytes,1,rep,name=CheckOnLineTasksStatus,proto3" json:"CheckOnLineTasksStatus,omitempty" protobuf_key:"bytes,1,opt,name=key,proto3" protobuf_val:"bytes,2,opt,name=value,proto3"`
+}
+
+func (x *CheckOnLineTasksResponse) Reset() {
+	*x = CheckOnLineTasksResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_proto_example_proto_msgTypes[44]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *CheckOnLineTasksResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*CheckOnLineTasksResponse) ProtoMessage() {}
+
+func (x *CheckOnLineTasksResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_proto_example_proto_msgTypes[44]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use CheckOnLineTasksResponse.ProtoReflect.Descriptor instead.
+func (*CheckOnLineTasksResponse) Descriptor() ([]byte, []int) {
+	return file_proto_example_proto_rawDescGZIP(), []int{44}
+}
+
+func (x *CheckOnLineTasksResponse) GetCheckOnLineTasksStatus() map[string]string {
+	if x != nil {
+		return x.CheckOnLineTasksStatus
+	}
+	return nil
+}
+
 var File_proto_example_proto protoreflect.FileDescriptor
 
 var file_proto_example_proto_rawDesc = []byte{
@@ -333,24 +2126,249 @@ var file_proto_example_proto_rawDesc = []byte{
 	0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
 	0x26, 0x0a, 0x0e, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x53, 0x74, 0x61, 0x74, 0x75,
 	0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0e, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65,
-	0x72, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x32, 0x46, 0x0a, 0x07, 0x47, 0x72, 0x65, 0x65, 0x74,
-	0x65, 0x72, 0x12, 0x3b, 0x0a, 0x08, 0x53, 0x61, 0x79, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x12, 0x15,
-	0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e,
-	0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x32,
-	0xa4, 0x01, 0x0a, 0x0c, 0x53, 0x74, 0x72, 0x61, 0x74, 0x65, 0x67, 0x79, 0x50, 0x6f, 0x6f, 0x6c,
-	0x12, 0x51, 0x0a, 0x10, 0x49, 0x6e, 0x69, 0x74, 0x53, 0x74, 0x72, 0x61, 0x74, 0x65, 0x67, 0x79,
-	0x50, 0x6f, 0x6f, 0x6c, 0x12, 0x1c, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x49,
-	0x6e, 0x69, 0x74, 0x53, 0x74, 0x72, 0x61, 0x74, 0x65, 0x67, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65,
-	0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x49, 0x6e, 0x69,
-	0x74, 0x53, 0x74, 0x72, 0x61, 0x74, 0x65, 0x67, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
-	0x65, 0x22, 0x00, 0x12, 0x41, 0x0a, 0x08, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x12,
-	0x18, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74,
-	0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e, 0x65, 0x78, 0x61, 0x6d,
-	0x70, 0x6c, 0x65, 0x2e, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x42, 0x13, 0x5a, 0x11, 0x2e, 0x2f, 0x65, 0x78, 0x61, 0x6d,
-	0x70, 0x6c, 0x65, 0x3b, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x62, 0x06, 0x70, 0x72, 0x6f,
-	0x74, 0x6f, 0x33,
+	0x72, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0x23, 0x0a, 0x11, 0x55, 0x6e, 0x72, 0x65, 0x67,
+	0x69, 0x73, 0x74, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02,
+	0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x49, 0x44, 0x22, 0x40, 0x0a, 0x12,
+	0x55, 0x6e, 0x72, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x12, 0x2a, 0x0a, 0x10, 0x55, 0x6e, 0x72, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72,
+	0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x10, 0x55, 0x6e,
+	0x72, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0x25,
+	0x0a, 0x13, 0x49, 0x66, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x65, 0x64, 0x52, 0x65,
+	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28,
+	0x09, 0x52, 0x02, 0x49, 0x44, 0x22, 0x46, 0x0a, 0x14, 0x49, 0x66, 0x52, 0x65, 0x67, 0x69, 0x73,
+	0x74, 0x65, 0x72, 0x65, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2e, 0x0a,
+	0x12, 0x49, 0x66, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x65, 0x64, 0x53, 0x74, 0x61,
+	0x74, 0x75, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x12, 0x49, 0x66, 0x52, 0x65, 0x67,
+	0x69, 0x73, 0x74, 0x65, 0x72, 0x65, 0x64, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0x37, 0x0a,
+	0x11, 0x52, 0x65, 0x6c, 0x6f, 0x61, 0x64, 0x41, 0x72, 0x67, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02,
+	0x49, 0x44, 0x12, 0x12, 0x0a, 0x04, 0x61, 0x72, 0x67, 0x73, 0x18, 0x02, 0x20, 0x03, 0x28, 0x09,
+	0x52, 0x04, 0x61, 0x72, 0x67, 0x73, 0x22, 0x40, 0x0a, 0x12, 0x52, 0x65, 0x6c, 0x6f, 0x61, 0x64,
+	0x41, 0x72, 0x67, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2a, 0x0a, 0x10,
+	0x52, 0x65, 0x6c, 0x6f, 0x61, 0x64, 0x41, 0x72, 0x67, 0x73, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x10, 0x52, 0x65, 0x6c, 0x6f, 0x61, 0x64, 0x41, 0x72,
+	0x67, 0x73, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0x15, 0x0a, 0x13, 0x47, 0x65, 0x74, 0x54,
+	0x61, 0x73, 0x6b, 0x49, 0x6e, 0x66, 0x6f, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22,
+	0x47, 0x0a, 0x14, 0x47, 0x65, 0x74, 0x54, 0x61, 0x73, 0x6b, 0x49, 0x6e, 0x66, 0x6f, 0x73, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2f, 0x0a, 0x09, 0x74, 0x61, 0x73, 0x6b, 0x49,
+	0x6e, 0x66, 0x6f, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x65, 0x78, 0x61,
+	0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x54, 0x61, 0x73, 0x6b, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x09, 0x74,
+	0x61, 0x73, 0x6b, 0x49, 0x6e, 0x66, 0x6f, 0x73, 0x22, 0x6e, 0x0a, 0x08, 0x54, 0x61, 0x73, 0x6b,
+	0x49, 0x6e, 0x66, 0x6f, 0x12, 0x0e, 0x0a, 0x02, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x02, 0x49, 0x44, 0x12, 0x26, 0x0a, 0x0e, 0x42, 0x69, 0x6e, 0x61, 0x72, 0x79, 0x4c, 0x6f,
+	0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0e, 0x42, 0x69,
+	0x6e, 0x61, 0x72, 0x79, 0x4c, 0x6f, 0x63, 0x61, 0x74, 0x69, 0x6f, 0x6e, 0x12, 0x12, 0x0a, 0x04,
+	0x61, 0x72, 0x67, 0x73, 0x18, 0x03, 0x20, 0x03, 0x28, 0x09, 0x52, 0x04, 0x61, 0x72, 0x67, 0x73,
+	0x12, 0x16, 0x0a, 0x06, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x04, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x06, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0x24, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x54,
+	0x61, 0x73, 0x6b, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e,
+	0x0a, 0x02, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x49, 0x44, 0x22, 0x44,
+	0x0a, 0x13, 0x47, 0x65, 0x74, 0x54, 0x61, 0x73, 0x6b, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2d, 0x0a, 0x08, 0x74, 0x61, 0x73, 0x6b, 0x49, 0x6e, 0x66,
+	0x6f, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x11, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c,
+	0x65, 0x2e, 0x54, 0x61, 0x73, 0x6b, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x08, 0x74, 0x61, 0x73, 0x6b,
+	0x49, 0x6e, 0x66, 0x6f, 0x22, 0x25, 0x0a, 0x13, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x52, 0x75, 0x6e,
+	0x6e, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x49,
+	0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x49, 0x44, 0x22, 0x46, 0x0a, 0x14, 0x43,
+	0x68, 0x65, 0x63, 0x6b, 0x52, 0x75, 0x6e, 0x6e, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x2e, 0x0a, 0x12, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x52, 0x75, 0x6e, 0x6e,
+	0x69, 0x6e, 0x67, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x12, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x52, 0x75, 0x6e, 0x6e, 0x69, 0x6e, 0x67, 0x53, 0x74, 0x61,
+	0x74, 0x75, 0x73, 0x22, 0x1c, 0x0a, 0x0a, 0x52, 0x75, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x12, 0x0e, 0x0a, 0x02, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x49,
+	0x44, 0x22, 0x2b, 0x0a, 0x0b, 0x52, 0x75, 0x6e, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x1c, 0x0a, 0x09, 0x52, 0x75, 0x6e, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x01, 0x20,
+	0x01, 0x28, 0x09, 0x52, 0x09, 0x52, 0x75, 0x6e, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0x1e,
+	0x0a, 0x0c, 0x53, 0x74, 0x61, 0x72, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e,
+	0x0a, 0x02, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x49, 0x44, 0x22, 0x31,
+	0x0a, 0x0d, 0x53, 0x74, 0x61, 0x72, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x20, 0x0a, 0x0b, 0x53, 0x74, 0x61, 0x72, 0x74, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x0b, 0x53, 0x74, 0x61, 0x72, 0x74, 0x53, 0x74, 0x61, 0x74, 0x75,
+	0x73, 0x22, 0x1d, 0x0a, 0x0b, 0x53, 0x74, 0x6f, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x12, 0x0e, 0x0a, 0x02, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x49, 0x44,
+	0x22, 0x2e, 0x0a, 0x0c, 0x53, 0x74, 0x6f, 0x70, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x12, 0x1e, 0x0a, 0x0a, 0x53, 0x74, 0x6f, 0x70, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x01,
+	0x20, 0x01, 0x28, 0x09, 0x52, 0x0a, 0x53, 0x74, 0x6f, 0x70, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73,
+	0x22, 0x10, 0x0a, 0x0e, 0x53, 0x74, 0x6f, 0x70, 0x41, 0x6c, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x22, 0x37, 0x0a, 0x0f, 0x53, 0x74, 0x6f, 0x70, 0x41, 0x6c, 0x6c, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x24, 0x0a, 0x0d, 0x53, 0x74, 0x6f, 0x70, 0x41, 0x6c, 0x6c,
+	0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x0d, 0x53, 0x74,
+	0x6f, 0x70, 0x41, 0x6c, 0x6c, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0x26, 0x0a, 0x14, 0x47,
+	0x65, 0x74, 0x54, 0x61, 0x73, 0x6b, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x49, 0x44, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
+	0x02, 0x49, 0x44, 0x22, 0x2f, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x54, 0x61, 0x73, 0x6b, 0x53, 0x74,
+	0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x16, 0x0a, 0x06,
+	0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x06, 0x53, 0x74,
+	0x61, 0x74, 0x75, 0x73, 0x22, 0x17, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x4f, 0x6e, 0x6c, 0x69, 0x6e,
+	0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x3a, 0x0a,
+	0x16, 0x47, 0x65, 0x74, 0x4f, 0x6e, 0x6c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x20, 0x0a, 0x0b, 0x4f, 0x6e, 0x6c, 0x69, 0x6e,
+	0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x0b, 0x4f, 0x6e,
+	0x6c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x22, 0x18, 0x0a, 0x16, 0x47, 0x65, 0x74,
+	0x4f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x22, 0x3d, 0x0a, 0x17, 0x47, 0x65, 0x74, 0x4f, 0x66, 0x66, 0x6c, 0x69, 0x6e,
+	0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x22,
+	0x0a, 0x0c, 0x4f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x18, 0x01,
+	0x20, 0x03, 0x28, 0x09, 0x52, 0x0c, 0x4f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73,
+	0x6b, 0x73, 0x22, 0x29, 0x0a, 0x15, 0x41, 0x64, 0x64, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54,
+	0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x49,
+	0x44, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x03, 0x49, 0x44, 0x73, 0x22, 0x4c, 0x0a,
+	0x16, 0x41, 0x64, 0x64, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a, 0x14, 0x41, 0x64, 0x64, 0x4f, 0x6e,
+	0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x14, 0x41, 0x64, 0x64, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65,
+	0x54, 0x61, 0x73, 0x6b, 0x73, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0x2c, 0x0a, 0x18, 0x52,
+	0x65, 0x6d, 0x6f, 0x76, 0x65, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x10, 0x0a, 0x03, 0x49, 0x44, 0x73, 0x18, 0x01,
+	0x20, 0x03, 0x28, 0x09, 0x52, 0x03, 0x49, 0x44, 0x73, 0x22, 0x55, 0x0a, 0x19, 0x52, 0x65, 0x6d,
+	0x6f, 0x76, 0x65, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x38, 0x0a, 0x17, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65,
+	0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x53, 0x74, 0x61, 0x74, 0x75,
+	0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x17, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x4f,
+	0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73,
+	0x22, 0x17, 0x0a, 0x15, 0x47, 0x65, 0x74, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73,
+	0x6b, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x3a, 0x0a, 0x16, 0x47, 0x65, 0x74,
+	0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x20, 0x0a, 0x0b, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73,
+	0x6b, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x09, 0x52, 0x0b, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65,
+	0x54, 0x61, 0x73, 0x6b, 0x73, 0x22, 0x19, 0x0a, 0x17, 0x53, 0x74, 0x61, 0x72, 0x74, 0x4f, 0x6e,
+	0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x22, 0x52, 0x0a, 0x18, 0x53, 0x74, 0x61, 0x72, 0x74, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54,
+	0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x36, 0x0a, 0x16,
+	0x53, 0x74, 0x61, 0x72, 0x74, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73,
+	0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x16, 0x53, 0x74,
+	0x61, 0x72, 0x74, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x53, 0x74,
+	0x61, 0x74, 0x75, 0x73, 0x22, 0x17, 0x0a, 0x15, 0x52, 0x75, 0x6e, 0x4f, 0x6e, 0x4c, 0x69, 0x6e,
+	0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0x4c, 0x0a,
+	0x16, 0x52, 0x75, 0x6e, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a, 0x14, 0x52, 0x75, 0x6e, 0x4f, 0x6e,
+	0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x14, 0x52, 0x75, 0x6e, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65,
+	0x54, 0x61, 0x73, 0x6b, 0x73, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x22, 0x19, 0x0a, 0x17, 0x43,
+	0x68, 0x65, 0x63, 0x6b, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22, 0xdc, 0x01, 0x0a, 0x18, 0x43, 0x68, 0x65, 0x63, 0x6b,
+	0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x75, 0x0a, 0x16, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x4f, 0x6e, 0x4c, 0x69,
+	0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x18, 0x01, 0x20,
+	0x03, 0x28, 0x0b, 0x32, 0x3d, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x43, 0x68,
+	0x65, 0x63, 0x6b, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x2e, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x4f, 0x6e, 0x4c, 0x69,
+	0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x45, 0x6e, 0x74,
+	0x72, 0x79, 0x52, 0x16, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54,
+	0x61, 0x73, 0x6b, 0x73, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x1a, 0x49, 0x0a, 0x1b, 0x43, 0x68,
+	0x65, 0x63, 0x6b, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x53, 0x74,
+	0x61, 0x74, 0x75, 0x73, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x12, 0x10, 0x0a, 0x03, 0x6b, 0x65, 0x79,
+	0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x03, 0x6b, 0x65, 0x79, 0x12, 0x14, 0x0a, 0x05, 0x76,
+	0x61, 0x6c, 0x75, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x76, 0x61, 0x6c, 0x75,
+	0x65, 0x3a, 0x02, 0x38, 0x01, 0x32, 0x46, 0x0a, 0x07, 0x47, 0x72, 0x65, 0x65, 0x74, 0x65, 0x72,
+	0x12, 0x3b, 0x0a, 0x08, 0x53, 0x61, 0x79, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x12, 0x15, 0x2e, 0x65,
+	0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x48, 0x65, 0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x48, 0x65,
+	0x6c, 0x6c, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x32, 0xe2, 0x0c,
+	0x0a, 0x0c, 0x53, 0x74, 0x72, 0x61, 0x74, 0x65, 0x67, 0x79, 0x50, 0x6f, 0x6f, 0x6c, 0x12, 0x51,
+	0x0a, 0x10, 0x49, 0x6e, 0x69, 0x74, 0x53, 0x74, 0x72, 0x61, 0x74, 0x65, 0x67, 0x79, 0x50, 0x6f,
+	0x6f, 0x6c, 0x12, 0x1c, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x49, 0x6e, 0x69,
+	0x74, 0x53, 0x74, 0x72, 0x61, 0x74, 0x65, 0x67, 0x79, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x1d, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x49, 0x6e, 0x69, 0x74, 0x53,
+	0x74, 0x72, 0x61, 0x74, 0x65, 0x67, 0x79, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
+	0x00, 0x12, 0x41, 0x0a, 0x08, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x12, 0x18, 0x2e,
+	0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c,
+	0x65, 0x2e, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x22, 0x00, 0x12, 0x47, 0x0a, 0x0a, 0x55, 0x6e, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74,
+	0x65, 0x72, 0x12, 0x1a, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x55, 0x6e, 0x72,
+	0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1b,
+	0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x55, 0x6e, 0x72, 0x65, 0x67, 0x69, 0x73,
+	0x74, 0x65, 0x72, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x4d, 0x0a,
+	0x0c, 0x49, 0x66, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72, 0x65, 0x64, 0x12, 0x1c, 0x2e,
+	0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x49, 0x66, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74,
+	0x65, 0x72, 0x65, 0x64, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x65, 0x78,
+	0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x49, 0x66, 0x52, 0x65, 0x67, 0x69, 0x73, 0x74, 0x65, 0x72,
+	0x65, 0x64, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x47, 0x0a, 0x0a,
+	0x52, 0x65, 0x6c, 0x6f, 0x61, 0x64, 0x41, 0x72, 0x67, 0x73, 0x12, 0x1a, 0x2e, 0x65, 0x78, 0x61,
+	0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x52, 0x65, 0x6c, 0x6f, 0x61, 0x64, 0x41, 0x72, 0x67, 0x73, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1b, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65,
+	0x2e, 0x52, 0x65, 0x6c, 0x6f, 0x61, 0x64, 0x41, 0x72, 0x67, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x4d, 0x0a, 0x0c, 0x47, 0x65, 0x74, 0x54, 0x61, 0x73, 0x6b,
+	0x49, 0x6e, 0x66, 0x6f, 0x73, 0x12, 0x1c, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e,
+	0x47, 0x65, 0x74, 0x54, 0x61, 0x73, 0x6b, 0x49, 0x6e, 0x66, 0x6f, 0x73, 0x52, 0x65, 0x71, 0x75,
+	0x65, 0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x47, 0x65,
+	0x74, 0x54, 0x61, 0x73, 0x6b, 0x49, 0x6e, 0x66, 0x6f, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x22, 0x00, 0x12, 0x4d, 0x0a, 0x0c, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x52, 0x75, 0x6e,
+	0x6e, 0x69, 0x6e, 0x67, 0x12, 0x1c, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x43,
+	0x68, 0x65, 0x63, 0x6b, 0x52, 0x75, 0x6e, 0x6e, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x43, 0x68, 0x65,
+	0x63, 0x6b, 0x52, 0x75, 0x6e, 0x6e, 0x69, 0x6e, 0x67, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x22, 0x00, 0x12, 0x32, 0x0a, 0x03, 0x52, 0x75, 0x6e, 0x12, 0x13, 0x2e, 0x65, 0x78, 0x61,
+	0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x52, 0x75, 0x6e, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x14, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x52, 0x75, 0x6e, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x38, 0x0a, 0x05, 0x53, 0x74, 0x61, 0x72, 0x74,
+	0x12, 0x15, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x53, 0x74, 0x61, 0x72, 0x74,
+	0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x16, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c,
+	0x65, 0x2e, 0x53, 0x74, 0x61, 0x72, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22,
+	0x00, 0x12, 0x35, 0x0a, 0x04, 0x53, 0x74, 0x6f, 0x70, 0x12, 0x14, 0x2e, 0x65, 0x78, 0x61, 0x6d,
+	0x70, 0x6c, 0x65, 0x2e, 0x53, 0x74, 0x6f, 0x70, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
+	0x15, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x53, 0x74, 0x6f, 0x70, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x3e, 0x0a, 0x07, 0x53, 0x74, 0x6f, 0x70,
+	0x41, 0x6c, 0x6c, 0x12, 0x17, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x53, 0x74,
+	0x6f, 0x70, 0x41, 0x6c, 0x6c, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x18, 0x2e, 0x65,
+	0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x53, 0x74, 0x6f, 0x70, 0x41, 0x6c, 0x6c, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x46, 0x0a, 0x07, 0x47, 0x65, 0x74, 0x54,
+	0x61, 0x73, 0x6b, 0x12, 0x1b, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x47, 0x65,
+	0x74, 0x54, 0x61, 0x73, 0x6b, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x1c, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x47, 0x65, 0x74, 0x54, 0x61,
+	0x73, 0x6b, 0x49, 0x6e, 0x66, 0x6f, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00,
+	0x12, 0x50, 0x0a, 0x0d, 0x47, 0x65, 0x74, 0x54, 0x61, 0x73, 0x6b, 0x53, 0x74, 0x61, 0x74, 0x75,
+	0x73, 0x12, 0x1d, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x47, 0x65, 0x74, 0x54,
+	0x61, 0x73, 0x6b, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74,
+	0x1a, 0x1e, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x47, 0x65, 0x74, 0x54, 0x61,
+	0x73, 0x6b, 0x53, 0x74, 0x61, 0x74, 0x75, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0x00, 0x12, 0x53, 0x0a, 0x0e, 0x47, 0x65, 0x74, 0x4f, 0x6e, 0x6c, 0x69, 0x6e, 0x65, 0x54,
+	0x61, 0x73, 0x6b, 0x73, 0x12, 0x1e, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x47,
+	0x65, 0x74, 0x4f, 0x6e, 0x6c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x1f, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x47,
+	0x65, 0x74, 0x4f, 0x6e, 0x6c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x56, 0x0a, 0x0f, 0x47, 0x65, 0x74, 0x4f, 0x66,
+	0x66, 0x6c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x12, 0x1f, 0x2e, 0x65, 0x78, 0x61,
+	0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x47, 0x65, 0x74, 0x4f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65, 0x54,
+	0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x20, 0x2e, 0x65, 0x78,
+	0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x47, 0x65, 0x74, 0x4f, 0x66, 0x66, 0x6c, 0x69, 0x6e, 0x65,
+	0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12,
+	0x53, 0x0a, 0x0e, 0x41, 0x64, 0x64, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b,
+	0x73, 0x12, 0x1e, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x41, 0x64, 0x64, 0x4f,
+	0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73,
+	0x74, 0x1a, 0x1f, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x41, 0x64, 0x64, 0x4f,
+	0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
+	0x73, 0x65, 0x22, 0x00, 0x12, 0x5c, 0x0a, 0x11, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x4f, 0x6e,
+	0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x12, 0x21, 0x2e, 0x65, 0x78, 0x61, 0x6d,
+	0x70, 0x6c, 0x65, 0x2e, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65,
+	0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x22, 0x2e, 0x65,
+	0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x52, 0x65, 0x6d, 0x6f, 0x76, 0x65, 0x4f, 0x6e, 0x4c,
+	0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0x00, 0x12, 0x53, 0x0a, 0x0e, 0x47, 0x65, 0x74, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54,
+	0x61, 0x73, 0x6b, 0x73, 0x12, 0x1e, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x47,
+	0x65, 0x74, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x1f, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x47,
+	0x65, 0x74, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x59, 0x0a, 0x10, 0x53, 0x74, 0x61, 0x72, 0x74,
+	0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x12, 0x20, 0x2e, 0x65, 0x78,
+	0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x53, 0x74, 0x61, 0x72, 0x74, 0x4f, 0x6e, 0x4c, 0x69, 0x6e,
+	0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x21, 0x2e,
+	0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x53, 0x74, 0x61, 0x72, 0x74, 0x4f, 0x6e, 0x4c,
+	0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0x00, 0x12, 0x53, 0x0a, 0x0e, 0x52, 0x75, 0x6e, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54,
+	0x61, 0x73, 0x6b, 0x73, 0x12, 0x1e, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x52,
+	0x75, 0x6e, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x1f, 0x2e, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x52,
+	0x75, 0x6e, 0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x73,
+	0x70, 0x6f, 0x6e, 0x73, 0x65, 0x22, 0x00, 0x12, 0x59, 0x0a, 0x10, 0x43, 0x68, 0x65, 0x63, 0x6b,
+	0x4f, 0x6e, 0x4c, 0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x12, 0x20, 0x2e, 0x65, 0x78,
+	0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x4f, 0x6e, 0x4c, 0x69, 0x6e,
+	0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x21, 0x2e,
+	0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x2e, 0x43, 0x68, 0x65, 0x63, 0x6b, 0x4f, 0x6e, 0x4c,
+	0x69, 0x6e, 0x65, 0x54, 0x61, 0x73, 0x6b, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65,
+	0x22, 0x00, 0x42, 0x13, 0x5a, 0x11, 0x2e, 0x2f, 0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x3b,
+	0x65, 0x78, 0x61, 0x6d, 0x70, 0x6c, 0x65, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
 }
 
 var (
@@ -365,27 +2383,108 @@ func file_proto_example_proto_rawDescGZIP() []byte {
 	return file_proto_example_proto_rawDescData
 }
 
-var file_proto_example_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_proto_example_proto_msgTypes = make([]protoimpl.MessageInfo, 46)
 var file_proto_example_proto_goTypes = []interface{}{
-	(*HelloRequest)(nil),         // 0: example.HelloRequest
-	(*HelloResponse)(nil),        // 1: example.HelloResponse
-	(*InitStrategyRequest)(nil),  // 2: example.InitStrategyRequest
-	(*InitStrategyResponse)(nil), // 3: example.InitStrategyResponse
-	(*RegisterRequest)(nil),      // 4: example.RegisterRequest
-	(*RegisterResponse)(nil),     // 5: example.RegisterResponse
+	(*HelloRequest)(nil),              // 0: example.HelloRequest
+	(*HelloResponse)(nil),             // 1: example.HelloResponse
+	(*InitStrategyRequest)(nil),       // 2: example.InitStrategyRequest
+	(*InitStrategyResponse)(nil),      // 3: example.InitStrategyResponse
+	(*RegisterRequest)(nil),           // 4: example.RegisterRequest
+	(*RegisterResponse)(nil),          // 5: example.RegisterResponse
+	(*UnregisterRequest)(nil),         // 6: example.UnregisterRequest
+	(*UnregisterResponse)(nil),        // 7: example.UnregisterResponse
+	(*IfRegisteredRequest)(nil),       // 8: example.IfRegisteredRequest
+	(*IfRegisteredResponse)(nil),      // 9: example.IfRegisteredResponse
+	(*ReloadArgsRequest)(nil),         // 10: example.ReloadArgsRequest
+	(*ReloadArgsResponse)(nil),        // 11: example.ReloadArgsResponse
+	(*GetTaskInfosRequest)(nil),       // 12: example.GetTaskInfosRequest
+	(*GetTaskInfosResponse)(nil),      // 13: example.GetTaskInfosResponse
+	(*TaskInfo)(nil),                  // 14: example.TaskInfo
+	(*GetTaskInfoRequest)(nil),        // 15: example.GetTaskInfoRequest
+	(*GetTaskInfoResponse)(nil),       // 16: example.GetTaskInfoResponse
+	(*CheckRunningRequest)(nil),       // 17: example.CheckRunningRequest
+	(*CheckRunningResponse)(nil),      // 18: example.CheckRunningResponse
+	(*RunRequest)(nil),                // 19: example.RunRequest
+	(*RunResponse)(nil),               // 20: example.RunResponse
+	(*StartRequest)(nil),              // 21: example.StartRequest
+	(*StartResponse)(nil),             // 22: example.StartResponse
+	(*StopRequest)(nil),               // 23: example.StopRequest
+	(*StopResponse)(nil),              // 24: example.StopResponse
+	(*StopAllRequest)(nil),            // 25: example.StopAllRequest
+	(*StopAllResponse)(nil),           // 26: example.StopAllResponse
+	(*GetTaskStatusRequest)(nil),      // 27: example.GetTaskStatusRequest
+	(*GetTaskStatusResponse)(nil),     // 28: example.GetTaskStatusResponse
+	(*GetOnlineTasksRequest)(nil),     // 29: example.GetOnlineTasksRequest
+	(*GetOnlineTasksResponse)(nil),    // 30: example.GetOnlineTasksResponse
+	(*GetOfflineTasksRequest)(nil),    // 31: example.GetOfflineTasksRequest
+	(*GetOfflineTasksResponse)(nil),   // 32: example.GetOfflineTasksResponse
+	(*AddOnLineTasksRequest)(nil),     // 33: example.AddOnLineTasksRequest
+	(*AddOnLineTasksResponse)(nil),    // 34: example.AddOnLineTasksResponse
+	(*RemoveOnLineTasksRequest)(nil),  // 35: example.RemoveOnLineTasksRequest
+	(*RemoveOnLineTasksResponse)(nil), // 36: example.RemoveOnLineTasksResponse
+	(*GetOnLineTasksRequest)(nil),     // 37: example.GetOnLineTasksRequest
+	(*GetOnLineTasksResponse)(nil),    // 38: example.GetOnLineTasksResponse
+	(*StartOnLineTasksRequest)(nil),   // 39: example.StartOnLineTasksRequest
+	(*StartOnLineTasksResponse)(nil),  // 40: example.StartOnLineTasksResponse
+	(*RunOnLineTasksRequest)(nil),     // 41: example.RunOnLineTasksRequest
+	(*RunOnLineTasksResponse)(nil),    // 42: example.RunOnLineTasksResponse
+	(*CheckOnLineTasksRequest)(nil),   // 43: example.CheckOnLineTasksRequest
+	(*CheckOnLineTasksResponse)(nil),  // 44: example.CheckOnLineTasksResponse
+	nil,                               // 45: example.CheckOnLineTasksResponse.CheckOnLineTasksStatusEntry
 }
 var file_proto_example_proto_depIdxs = []int32{
-	0, // 0: example.Greeter.SayHello:input_type -> example.HelloRequest
-	2, // 1: example.StrategyPool.InitStrategyPool:input_type -> example.InitStrategyRequest
-	4, // 2: example.StrategyPool.Register:input_type -> example.RegisterRequest
-	1, // 3: example.Greeter.SayHello:output_type -> example.HelloResponse
-	3, // 4: example.StrategyPool.InitStrategyPool:output_type -> example.InitStrategyResponse
-	5, // 5: example.StrategyPool.Register:output_type -> example.RegisterResponse
-	3, // [3:6] is the sub-list for method output_type
-	0, // [0:3] is the sub-list for method input_type
-	0, // [0:0] is the sub-list for extension type_name
-	0, // [0:0] is the sub-list for extension extendee
-	0, // [0:0] is the sub-list for field type_name
+	14, // 0: example.GetTaskInfosResponse.taskInfos:type_name -> example.TaskInfo
+	14, // 1: example.GetTaskInfoResponse.taskInfo:type_name -> example.TaskInfo
+	45, // 2: example.CheckOnLineTasksResponse.CheckOnLineTasksStatus:type_name -> example.CheckOnLineTasksResponse.CheckOnLineTasksStatusEntry
+	0,  // 3: example.Greeter.SayHello:input_type -> example.HelloRequest
+	2,  // 4: example.StrategyPool.InitStrategyPool:input_type -> example.InitStrategyRequest
+	4,  // 5: example.StrategyPool.Register:input_type -> example.RegisterRequest
+	6,  // 6: example.StrategyPool.UnRegister:input_type -> example.UnregisterRequest
+	8,  // 7: example.StrategyPool.IfRegistered:input_type -> example.IfRegisteredRequest
+	10, // 8: example.StrategyPool.ReloadArgs:input_type -> example.ReloadArgsRequest
+	12, // 9: example.StrategyPool.GetTaskInfos:input_type -> example.GetTaskInfosRequest
+	17, // 10: example.StrategyPool.CheckRunning:input_type -> example.CheckRunningRequest
+	19, // 11: example.StrategyPool.Run:input_type -> example.RunRequest
+	21, // 12: example.StrategyPool.Start:input_type -> example.StartRequest
+	23, // 13: example.StrategyPool.Stop:input_type -> example.StopRequest
+	25, // 14: example.StrategyPool.StopAll:input_type -> example.StopAllRequest
+	15, // 15: example.StrategyPool.GetTask:input_type -> example.GetTaskInfoRequest
+	27, // 16: example.StrategyPool.GetTaskStatus:input_type -> example.GetTaskStatusRequest
+	29, // 17: example.StrategyPool.GetOnlineTasks:input_type -> example.GetOnlineTasksRequest
+	31, // 18: example.StrategyPool.GetOfflineTasks:input_type -> example.GetOfflineTasksRequest
+	33, // 19: example.StrategyPool.AddOnLineTasks:input_type -> example.AddOnLineTasksRequest
+	35, // 20: example.StrategyPool.RemoveOnLineTasks:input_type -> example.RemoveOnLineTasksRequest
+	37, // 21: example.StrategyPool.GetOnLineTasks:input_type -> example.GetOnLineTasksRequest
+	39, // 22: example.StrategyPool.StartOnLineTasks:input_type -> example.StartOnLineTasksRequest
+	41, // 23: example.StrategyPool.RunOnLineTasks:input_type -> example.RunOnLineTasksRequest
+	43, // 24: example.StrategyPool.CheckOnLineTasks:input_type -> example.CheckOnLineTasksRequest
+	1,  // 25: example.Greeter.SayHello:output_type -> example.HelloResponse
+	3,  // 26: example.StrategyPool.InitStrategyPool:output_type -> example.InitStrategyResponse
+	5,  // 27: example.StrategyPool.Register:output_type -> example.RegisterResponse
+	7,  // 28: example.StrategyPool.UnRegister:output_type -> example.UnregisterResponse
+	9,  // 29: example.StrategyPool.IfRegistered:output_type -> example.IfRegisteredResponse
+	11, // 30: example.StrategyPool.ReloadArgs:output_type -> example.ReloadArgsResponse
+	13, // 31: example.StrategyPool.GetTaskInfos:output_type -> example.GetTaskInfosResponse
+	18, // 32: example.StrategyPool.CheckRunning:output_type -> example.CheckRunningResponse
+	20, // 33: example.StrategyPool.Run:output_type -> example.RunResponse
+	22, // 34: example.StrategyPool.Start:output_type -> example.StartResponse
+	24, // 35: example.StrategyPool.Stop:output_type -> example.StopResponse
+	26, // 36: example.StrategyPool.StopAll:output_type -> example.StopAllResponse
+	16, // 37: example.StrategyPool.GetTask:output_type -> example.GetTaskInfoResponse
+	28, // 38: example.StrategyPool.GetTaskStatus:output_type -> example.GetTaskStatusResponse
+	30, // 39: example.StrategyPool.GetOnlineTasks:output_type -> example.GetOnlineTasksResponse
+	32, // 40: example.StrategyPool.GetOfflineTasks:output_type -> example.GetOfflineTasksResponse
+	34, // 41: example.StrategyPool.AddOnLineTasks:output_type -> example.AddOnLineTasksResponse
+	36, // 42: example.StrategyPool.RemoveOnLineTasks:output_type -> example.RemoveOnLineTasksResponse
+	38, // 43: example.StrategyPool.GetOnLineTasks:output_type -> example.GetOnLineTasksResponse
+	40, // 44: example.StrategyPool.StartOnLineTasks:output_type -> example.StartOnLineTasksResponse
+	42, // 45: example.StrategyPool.RunOnLineTasks:output_type -> example.RunOnLineTasksResponse
+	44, // 46: example.StrategyPool.CheckOnLineTasks:output_type -> example.CheckOnLineTasksResponse
+	25, // [25:47] is the sub-list for method output_type
+	3,  // [3:25] is the sub-list for method input_type
+	3,  // [3:3] is the sub-list for extension type_name
+	3,  // [3:3] is the sub-list for extension extendee
+	0,  // [0:3] is the sub-list for field type_name
 }
 
 func init() { file_proto_example_proto_init() }
@@ -466,6 +2565,474 @@ func file_proto_example_proto_init() {
 				return nil
 			}
 		}
+		file_proto_example_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UnregisterRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*UnregisterResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*IfRegisteredRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[9].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*IfRegisteredResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[10].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ReloadArgsRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[11].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ReloadArgsResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[12].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetTaskInfosRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[13].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetTaskInfosResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[14].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*TaskInfo); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[15].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetTaskInfoRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[16].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetTaskInfoResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[17].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CheckRunningRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[18].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CheckRunningResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[19].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RunRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[20].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RunResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[21].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*StartRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[22].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*StartResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[23].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*StopRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[24].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*StopResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[25].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*StopAllRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[26].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*StopAllResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[27].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetTaskStatusRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[28].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetTaskStatusResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[29].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetOnlineTasksRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[30].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetOnlineTasksResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[31].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetOfflineTasksRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[32].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetOfflineTasksResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[33].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AddOnLineTasksRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[34].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*AddOnLineTasksResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[35].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RemoveOnLineTasksRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[36].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RemoveOnLineTasksResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[37].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetOnLineTasksRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[38].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetOnLineTasksResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[39].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*StartOnLineTasksRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[40].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*StartOnLineTasksResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[41].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RunOnLineTasksRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[42].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*RunOnLineTasksResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[43].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CheckOnLineTasksRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_proto_example_proto_msgTypes[44].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*CheckOnLineTasksResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
 	}
 	type x struct{}
 	out := protoimpl.TypeBuilder{
@@ -473,7 +3040,7 @@ func file_proto_example_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_proto_example_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   46,
 			NumExtensions: 0,
 			NumServices:   2,
 		},

@@ -17,29 +17,38 @@ message HelloResponse {
 
 
 service StrategyPool {
+    // ~ All pid info on the server should be restricted to the server
+    // & Method Section 1: InitStrategyPool
     rpc InitStrategyPool (InitStrategyRequest) returns (InitStrategyResponse) {}
+    // & Method Section 2: All-Task Map Related
     rpc Register (RegisterRequest) returns (RegisterResponse) {}
-    // rpc UnRegister (UnregisterRequest) returns (UnregisterResponse) {}
-    // rpc IfRegistered (IfRegisteredRequest) returns (IfRegisteredResponse) {}
-    // rpc ReloadArgs (ReloadArgsRequest) returns (ReloadArgsResponse) {}
-    // rpc GetTaskInfos (GetTaskInfosRequest) returns (GetTaskInfosResponse) {}
-    // rpc CheckRunning (CheckRunningRequest) returns (CheckRunningResponse) {}
-    // rpc Run (RunRequest) returns (RunResponse) {}
-    // rpc Start (StartRequest) returns (StartResponse) {}
-    // rpc Stop (StopRequest) returns (StopResponse) {}
-    // rpc StopAll (StopAllRequest) returns (StopAllResponse) {}
-    // rpc GetTask (GetTaskInfoRequest) returns (GetTaskInfoResponse) {}
-    // rpc GetTaskStatus (GetTaskStatusRequest) returns (GetTaskStatusResponse) {}
-    // rpc GetOnlineTasks (GetOnlineTasksRequest) returns (GetOnlineTasksResponse) {}
-    // rpc GetOfflineTasks (GetOfflineTasksRequest) returns (GetOfflineTasksResponse) {}
+    rpc UnRegister (UnregisterRequest) returns (UnregisterResponse) {}
+    rpc IfRegistered (IfRegisteredRequest) returns (IfRegisteredResponse) {}
+    rpc ReloadArgs (ReloadArgsRequest) returns (ReloadArgsResponse) {}
+    rpc GetTaskInfos (GetTaskInfosRequest) returns (GetTaskInfosResponse) {}
+    
+    
+    // & Method Section 3: Task Related
+    rpc CheckRunning (CheckRunningRequest) returns (CheckRunningResponse) {}
+    rpc Run (RunRequest) returns (RunResponse) {}
+    rpc Start (StartRequest) returns (StartResponse) {}
+    rpc Stop (StopRequest) returns (StopResponse) {}
+    rpc StopAll (StopAllRequest) returns (StopAllResponse) {}
+    rpc GetTask (GetTaskInfoRequest) returns (GetTaskInfoResponse) {}
+    rpc GetTaskStatus (GetTaskStatusRequest) returns (GetTaskStatusResponse) {}
+    rpc GetOnlineTasks (GetOnlineTasksRequest) returns (GetOnlineTasksResponse) {}
+    rpc GetOfflineTasks (GetOfflineTasksRequest) returns (GetOfflineTasksResponse) {}
+    // & Method Section 4: finalCheckPids should not be provided to the client
     // rpc CheckFinalCheckPids (CheckFinalCheckPidsRequest) returns (CheckFinalCheckPidsResponse) {}
     // rpc CheckFinalCheckPidEmpty (CheckFinalCheckPidEmptyRequest) returns (CheckFinalCheckPidEmptyResponse) {}
-    // rpc AddOnLineTasks (AddOnLineTasksRequest) returns (AddOnLineTasksResponse) {}
-    // rpc RemoveOnLineTasks (RemoveOnLineTasksRequest) returns (RemoveOnLineTasksResponse) {}
-    // rpc GetOnLineTasks (GetOnLineTasksRequest) returns (GetOnLineTasksResponse) {}
-    // rpc StartOnLineTasks (StartOnLineTasksRequest) returns (StartOnLineTasksResponse) {}
-    // rpc RunOnLineTasks (RunOnLineTasksRequest) returns (RunOnLineTasksResponse) {}
-    // rpc CheckOnLineTasks (CheckOnLineTasksRequest) returns (CheckOnLineTasksResponse) {}
+    
+    // & Method Section 5: onLineTasks 
+    rpc AddOnLineTasks (AddOnLineTasksRequest) returns (AddOnLineTasksResponse) {}
+    rpc RemoveOnLineTasks (RemoveOnLineTasksRequest) returns (RemoveOnLineTasksResponse) {}
+    rpc GetOnLineTasks (GetOnLineTasksRequest) returns (GetOnLineTasksResponse) {}
+    rpc StartOnLineTasks (StartOnLineTasksRequest) returns (StartOnLineTasksResponse) {}
+    rpc RunOnLineTasks (RunOnLineTasksRequest) returns (RunOnLineTasksResponse) {}
+    rpc CheckOnLineTasks (CheckOnLineTasksRequest) returns (CheckOnLineTasksResponse) {}
 
 }
 
@@ -60,3 +69,168 @@ message RegisterResponse {
     string RegisterStatus = 1;
 
 }
+
+message UnregisterRequest {
+    string ID = 1;
+}
+
+message UnregisterResponse {
+    string UnregisterStatus = 1;
+}
+
+message IfRegisteredRequest {
+    string ID = 1;
+}
+
+message IfRegisteredResponse {
+    string IfRegisteredStatus = 1;
+}
+
+message ReloadArgsRequest {
+    string ID = 1;
+    repeated string args = 2;
+}
+
+message ReloadArgsResponse {
+    string ReloadArgsStatus = 1;
+}
+
+message GetTaskInfosRequest {
+
+}
+
+message GetTaskInfosResponse {
+    repeated TaskInfo taskInfos = 1;
+}
+
+message TaskInfo {
+    string ID = 1;
+    string BinaryLocation = 2;
+    repeated string args = 3;
+    string Status = 4;
+}
+
+message GetTaskInfoRequest {
+    string ID = 1;
+}
+
+message GetTaskInfoResponse {
+    TaskInfo taskInfo = 1;
+}
+
+message CheckRunningRequest {
+    string ID = 1;
+}
+
+message CheckRunningResponse {
+    string CheckRunningStatus = 1;
+}
+
+message RunRequest {
+    string ID = 1;
+}
+
+message RunResponse {
+    string RunStatus = 1;
+}
+
+message StartRequest {
+    string ID = 1;
+}
+
+message StartResponse {
+    string StartStatus = 1;
+}
+
+message StopRequest {
+    string ID = 1;
+}
+
+message StopResponse {
+    string StopStatus = 1;
+}
+
+message StopAllRequest {
+
+}
+
+message StopAllResponse {
+    string StopAllStatus = 1;
+}
+
+
+
+message GetTaskStatusRequest {
+    string ID = 1;
+}
+
+message GetTaskStatusResponse {
+    string Status = 1;
+}
+
+message GetOnlineTasksRequest {
+
+}
+
+message GetOnlineTasksResponse {
+    repeated string OnlineTasks = 1;
+}
+
+message GetOfflineTasksRequest {
+
+}
+
+message GetOfflineTasksResponse {
+    repeated string OfflineTasks = 1;
+}
+
+
+message AddOnLineTasksRequest {
+    repeated string IDs = 1;
+}
+
+message AddOnLineTasksResponse {
+    string AddOnLineTasksStatus = 1;
+}
+
+message RemoveOnLineTasksRequest {
+    repeated string IDs = 1;
+}
+
+message RemoveOnLineTasksResponse {
+    string RemoveOnLineTasksStatus = 1;
+}
+
+message GetOnLineTasksRequest {
+
+}
+
+message GetOnLineTasksResponse {
+    repeated string OnLineTasks = 1;
+}
+
+message StartOnLineTasksRequest {
+
+}
+
+message StartOnLineTasksResponse {
+    string StartOnLineTasksStatus = 1;
+}
+
+message RunOnLineTasksRequest {
+
+}
+
+message RunOnLineTasksResponse {
+    string RunOnLineTasksStatus = 1;
+}
+
+message CheckOnLineTasksRequest {
+
+}
+
+message CheckOnLineTasksResponse {
+    map<string, string> CheckOnLineTasksStatus = 1;
+}
+
+

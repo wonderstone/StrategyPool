@@ -9,30 +9,30 @@ import (
 
 type void struct{}
 
-type status int
+type Status int
 
 const (
-	online  status = iota
-	offline        // default for task that has not been started
-	offline_Done
-	offline_Terminated
-	offline_Other
+	Online  Status = iota
+	Offline        // default for task that has not been started
+	Offline_Done
+	Offline_Terminated
+	Offline_Other
 )
 
 type statusInfo struct {
-	status status
+	Status Status
 	pid    interface{}
 }
 
 type taskInfo struct {
-	task    *st.StrategyTask
-	stsinfo statusInfo
-	args    []string
+	Task    *st.StrategyTask
+	Stsinfo statusInfo
+	Args    []string
 }
 type stgStatusError struct {
-	id      string
-	stsInfo statusInfo
-	err     error
+	ID      string
+	StsInfo statusInfo
+	Err     error
 }
 
 // - StrategyPool is used to store strategytasks
@@ -79,25 +79,25 @@ func (sp *StrategyPool) Init() {
 			// todo: delete following line
 			// fmt.Println("stgStatusError info From channel:", stgStatusErr)
 			// update allTaskStatus according to stgStatusErr.sts
-			temp := sp.allTaskInfo[stgStatusErr.id]
-			temp.stsinfo = stgStatusErr.stsInfo
-			switch stgStatusErr.stsInfo.status {
-			case online:
+			temp := sp.allTaskInfo[stgStatusErr.ID]
+			temp.Stsinfo = stgStatusErr.StsInfo
+			switch stgStatusErr.StsInfo.Status {
+			case Online:
 				// get the lock
 				sp.m.Lock()
 				// add pid to finalCheckPids
-				sp.finalCheckPids[stgStatusErr.id] = stgStatusErr.stsInfo.pid.(int)
+				sp.finalCheckPids[stgStatusErr.ID] = stgStatusErr.StsInfo.pid.(int)
 				// fmt.Println("finalCheckPids-online:", sp.finalCheckPids)
 				callback("start")
 				// release the lock
 				sp.m.Unlock()
-			case offline_Done, offline_Terminated, offline_Other:
+			case Offline_Done, Offline_Terminated, Offline_Other:
 				// get the lock
 				sp.m.Lock()
 				// change task pid to nil
-				temp.task.SetPid(nil)
+				temp.Task.SetPid(nil)
 				// remove pid from finalCheckPids
-				delete(sp.finalCheckPids, stgStatusErr.id)
+				delete(sp.finalCheckPids, stgStatusErr.ID)
 				// fmt.Println("finalCheckPids-offline:", sp.finalCheckPids)
 				// release the lock
 				callback("stop~~!!")
@@ -106,7 +106,7 @@ func (sp *StrategyPool) Init() {
 			// update allTaskStatus
 			// get the lock
 			sp.m.Lock()
-			sp.allTaskInfo[stgStatusErr.id] = temp
+			sp.allTaskInfo[stgStatusErr.ID] = temp
 			// release the lock
 			callback("update the taskInfo")
 			sp.m.Unlock()
@@ -119,7 +119,7 @@ func (sp *StrategyPool) Init() {
 // & Method Section 2: All-Task Map Related
 // ~ Method Register that add a strategytask to the strategypool allTasks
 func (sp *StrategyPool) Register(task *st.StrategyTask, args []string) {
-	sp.allTaskInfo[task.ID] = taskInfo{task, statusInfo{offline, nil}, args}
+	sp.allTaskInfo[task.ID] = taskInfo{task, statusInfo{Offline, nil}, args}
 }
 
 // ~ Method UnRegister that remove a strategytask from the strategypool allTasks
@@ -131,7 +131,7 @@ func (sp *StrategyPool) UnRegister(taskID string) {
 func (sp *StrategyPool) IfRegistered(taskID string) (*st.StrategyTask, bool) {
 	taskInfo, ok := sp.allTaskInfo[taskID]
 	if ok {
-		return taskInfo.task, true
+		return taskInfo.Task, true
 	}
 	return nil, false
 }
@@ -145,7 +145,7 @@ func (sp *StrategyPool) ReloadArgs(taskID string, args []string) error {
 	}
 	// update the args
 	temp := sp.allTaskInfo[taskID]
-	temp.args = args
+	temp.Args = args
 	sp.allTaskInfo[taskID] = temp
 	return nil
 }
@@ -155,6 +155,15 @@ func (sp *StrategyPool) ReloadArgs(taskID string, args []string) error {
 // = Just output the task info
 func (sp *StrategyPool) GetTaskInfos() map[string]taskInfo {
 	return sp.allTaskInfo
+}
+
+// ~ Method GetTaskInfo returns a task info
+func (sp *StrategyPool) GetTaskInfo(taskID string) (taskInfo, error) {
+	taskInfo, ok := sp.allTaskInfo[taskID]
+	if ok {
+		return taskInfo, nil
+	}
+	return taskInfo, fmt.Errorf("task not found")
 }
 
 // & Method Section 2 End
@@ -190,14 +199,14 @@ func (sp *StrategyPool) Run(taskID string) error {
 		go func() {
 			// update status to online
 			// no pid under run mode for blocking reason
-			err := task.Start(sp.allTaskInfo[taskID].args...)
+			err := task.Start(sp.allTaskInfo[taskID].Args...)
 			if err == nil {
-				sp.StgErrorCh <- stgStatusError{taskID, statusInfo{online, task.GetPid()}, nil}
+				sp.StgErrorCh <- stgStatusError{taskID, statusInfo{Online, task.GetPid()}, nil}
 			} else {
-				sp.StgErrorCh <- stgStatusError{taskID, statusInfo{offline_Other, nil}, err}
+				sp.StgErrorCh <- stgStatusError{taskID, statusInfo{Offline_Other, nil}, err}
 			}
 			err2 := task.Wait4()
-			sp.StgErrorCh <- stgStatusError{taskID, statusInfo{offline_Done, nil}, err2}
+			sp.StgErrorCh <- stgStatusError{taskID, statusInfo{Offline_Done, nil}, err2}
 		}()
 
 	}
@@ -212,14 +221,14 @@ func (sp *StrategyPool) Start(taskID string) error {
 		return fmt.Errorf("task not found")
 	}
 	if task != nil {
-		err := task.Start(sp.allTaskInfo[taskID].args...)
+		err := task.Start(sp.allTaskInfo[taskID].Args...)
 
 		if err != nil {
 			// update status to offline by sending to channel
-			sp.StgErrorCh <- stgStatusError{taskID, statusInfo{offline_Other, nil}, err}
+			sp.StgErrorCh <- stgStatusError{taskID, statusInfo{Offline_Other, nil}, err}
 		} else {
 			// update status to online by sending to channel
-			sp.StgErrorCh <- stgStatusError{taskID, statusInfo{online, task.GetPid()}, nil}
+			sp.StgErrorCh <- stgStatusError{taskID, statusInfo{Online, task.GetPid()}, nil}
 		}
 		return err
 	}
@@ -242,7 +251,7 @@ func (sp *StrategyPool) Stop(taskID string) error {
 		}
 		err := task.Stop()
 		// update status to offline
-		sp.StgErrorCh <- stgStatusError{taskID, statusInfo{offline_Terminated, nil}, err}
+		sp.StgErrorCh <- stgStatusError{taskID, statusInfo{Offline_Terminated, nil}, err}
 		return err
 	}
 	return fmt.Errorf("task is nil")
@@ -269,15 +278,15 @@ func (sp *StrategyPool) GetTask(taskID string) (*st.StrategyTask, error) {
 
 // - Method GetTaskStatus returns a task status
 // GetTaskStatus method returns a specific task status from the strategypool
-func (sp *StrategyPool) GetTaskStatus(taskID string) (status, error) {
+func (sp *StrategyPool) GetTaskStatus(taskID string) (Status, error) {
 	task, ok := sp.IfRegistered(taskID)
 	if !ok {
-		return offline_Other, fmt.Errorf("task not found")
+		return Offline_Other, fmt.Errorf("task not found")
 	}
 	if task != nil {
-		return sp.allTaskInfo[taskID].stsinfo.status, nil
+		return sp.allTaskInfo[taskID].Stsinfo.Status, nil
 	}
-	return offline_Other, fmt.Errorf("task is nil")
+	return Offline_Other, fmt.Errorf("task is nil")
 }
 
 // -Method GetOnlineTasks returns online tasks
@@ -285,7 +294,7 @@ func (sp *StrategyPool) GetTaskStatus(taskID string) (status, error) {
 func (sp *StrategyPool) GetOnlineTasks() map[string]void {
 	onlineTasks := make(map[string]void)
 	for key, taskInfo := range sp.allTaskInfo {
-		if taskInfo.stsinfo.status == online {
+		if taskInfo.Stsinfo.Status == Online {
 			onlineTasks[key] = void{}
 		}
 	}
@@ -298,7 +307,7 @@ func (sp *StrategyPool) GetOfflineTasks() map[string]void {
 	offlineTasks := make(map[string]void)
 	for key, taskInfo := range sp.allTaskInfo {
 		// offline status includes offline, offline_Done, offline_Terminated, offline_Other
-		if taskInfo.stsinfo.status == offline || taskInfo.stsinfo.status == offline_Done || taskInfo.stsinfo.status == offline_Terminated || taskInfo.stsinfo.status == offline_Other {
+		if taskInfo.Stsinfo.Status == Offline || taskInfo.Stsinfo.Status == Offline_Done || taskInfo.Stsinfo.Status == Offline_Terminated || taskInfo.Stsinfo.Status == Offline_Other {
 			offlineTasks[key] = void{}
 		}
 	}

@@ -29,7 +29,7 @@ func TestRegister(t *testing.T) {
 	sp := NewStrategyPool()
 	sp.Init()
 	sp.Register(tmpTask,[]string{})
-	if sp.allTaskInfo[id].task == nil {
+	if sp.allTaskInfo[id].Task == nil {
 		t.Errorf("Expected StrategyPool to be non-nil, got nil")
 	}
 
@@ -50,13 +50,13 @@ func TestRegister(t *testing.T) {
 	if err != nil {
 		t.Errorf("Expected error to be nil, got %v", err)
 	}
-	if sp.allTaskInfo[id].args[0] != "arg1" {
-		t.Errorf("Expected arg1, got %v", sp.allTaskInfo[id].args[0])
+	if sp.allTaskInfo[id].Args[0] != "arg1" {
+		t.Errorf("Expected arg1, got %v", sp.allTaskInfo[id].Args[0])
 	}
 
 	// GetTaskInfos
 	taskInfos := sp.GetTaskInfos()
-	tmp:= taskInfos[id].task
+	tmp:= taskInfos[id].Task
 	if tmp != tmpTask {
 		t.Errorf("Expected task to be the same, but it is different")
 	}
@@ -72,8 +72,8 @@ func TestRegister(t *testing.T) {
 
 	// GetTaskInfos
 	taskInfos = sp.GetTaskInfos()
-	if taskInfos[id].task != nil {
-		t.Errorf("Expected task to be nil, got %v", taskInfos[id].task)
+	if taskInfos[id].Task != nil {
+		t.Errorf("Expected task to be nil, got %v", taskInfos[id].Task)
 	}
 
 }
