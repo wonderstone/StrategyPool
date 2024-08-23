@@ -31,7 +31,7 @@ service StrategyPool {
     // & Method Section 3: Task Related
     rpc CheckRunning (CheckRunningRequest) returns (CheckRunningResponse) {}
     rpc Run (RunRequest) returns (RunResponse) {}
-    rpc Start (StartRequest) returns (StartResponse) {}
+    // rpc Start (StartRequest) returns (StartResponse) {}
     rpc Stop (StopRequest) returns (StopResponse) {}
     rpc StopAll (StopAllRequest) returns (StopAllResponse) {}
     rpc GetTask (GetTaskInfoRequest) returns (GetTaskInfoResponse) {}
@@ -134,13 +134,6 @@ message RunResponse {
     string RunStatus = 1;
 }
 
-message StartRequest {
-    string ID = 1;
-}
-
-message StartResponse {
-    string StartStatus = 1;
-}
 
 message StopRequest {
     string ID = 1;

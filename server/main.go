@@ -33,7 +33,24 @@ func (s *server) SayHello(ctx context.Context, req *pb.HelloRequest) (*pb.HelloR
 func Printer(){
 	for {
 		time.Sleep(2 * time.Second)
-		fmt.Println(tmpsp)
+		fmt.Println("StrategyPool is ",tmpsp)
+		fmt.Println("====================================")
+		fmt.Println("Online Tasks from SP_onLineTasks map: ")
+		// tmp := tmpsp.GetOnLineTasks_OLT()
+		tmp := tmpsp.GetOnlineTasks_ATI()
+		for k := range tmp{
+			fmt.Println("Task ID: ",k)
+			tmptskinfo,_ := tmpsp.GetTaskInfo(k)
+			fmt.Println("Task Info: ",tmptskinfo)
+			info , err := tmpsp.GetTaskStatus(k)
+			if err != nil {
+				fmt.Println("Task Status: ",err)
+			}else{
+				fmt.Println("Task Status: ",info)
+			}
+		}
+		fmt.Println("************************************")
+
 	}
 }
 

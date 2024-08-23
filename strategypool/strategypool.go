@@ -213,31 +213,14 @@ func (sp *StrategyPool) Run(taskID string) error {
 	return nil
 }
 
-// - Method Start a strategytask
-// Start method starts a strategytask in the strategypool
-func (sp *StrategyPool) Start(taskID string) error {
-	task, ok := sp.IfRegistered(taskID)
-	if !ok {
-		return fmt.Errorf("task not found")
-	}
-	if task != nil {
-		err := task.Start(sp.allTaskInfo[taskID].Args...)
 
-		if err != nil {
-			// update status to offline by sending to channel
-			sp.StgErrorCh <- stgStatusError{taskID, statusInfo{Offline_Other, nil}, err}
-		} else {
-			// update status to online by sending to channel
-			sp.StgErrorCh <- stgStatusError{taskID, statusInfo{Online, task.GetPid()}, nil}
-		}
-		return err
-	}
-	return fmt.Errorf("task is nil")
-}
 
 // - Method Stop a strategytask
 // Method Stop a strategytask
 // Stop method stops a strategytask in the strategypool
+// the fundemental difference task.Stop() will check if the pid is running
+// therefore, Start and Run method both ok to use Stop method
+//
 func (sp *StrategyPool) Stop(taskID string) error {
 	task, ok := sp.IfRegistered(taskID)
 	if !ok {
@@ -284,14 +267,21 @@ func (sp *StrategyPool) GetTaskStatus(taskID string) (Status, error) {
 		return Offline_Other, fmt.Errorf("task not found")
 	}
 	if task != nil {
+		// check task pid is really running and change the related status
+		pid, err := task.CheckRunning()
+		fmt.Println("pid:", pid, "err:", err)
+		if err == nil {
+			tmpstatusInfo := statusInfo{Online, pid}
+			sp.allTaskInfo[taskID] = taskInfo{task, tmpstatusInfo, sp.allTaskInfo[taskID].Args}
+		}
 		return sp.allTaskInfo[taskID].Stsinfo.Status, nil
 	}
 	return Offline_Other, fmt.Errorf("task is nil")
 }
 
-// -Method GetOnlineTasks returns online tasks
-// GetOnlineTasks method returns online tasks by iterating allTaskInfo
-func (sp *StrategyPool) GetOnlineTasks() map[string]void {
+// -Method GetOnlineTasks_ATI returns online tasks
+// GetOnlineTasks_ATI method returns online tasks by iterating allTaskInfo
+func (sp *StrategyPool) GetOnlineTasks_ATI() map[string]void {
 	onlineTasks := make(map[string]void)
 	for key, taskInfo := range sp.allTaskInfo {
 		if taskInfo.Stsinfo.Status == Online {
@@ -366,9 +356,9 @@ func (sp *StrategyPool) RemoveOnLineTasks(taskIDs ...string) {
 	}
 }
 
-// - Method GetOnLineTasks returns onLineTasks
-// GetOnLineTasks method returns onLineTasks
-func (sp *StrategyPool) GetOnLineTasks() map[string]void {
+// - Method GetonLineTasks_target returns onLineTasks
+// GetonLineTasks_target method returns onLineTasks
+func (sp *StrategyPool) GetonLineTasks_target() map[string]void {
 	return sp.onLineTasks
 }
 
@@ -376,13 +366,13 @@ func (sp *StrategyPool) GetOnLineTasks() map[string]void {
 // StartOnLineTasks method starts onLineTasks
 func (sp *StrategyPool) StartOnLineTasks() {
 	// get real online tasks
-	onlineTasks := sp.GetOnlineTasks()
+	onlineTasks := sp.GetOnlineTasks_ATI()
 	// task in sp.onLineTasks should be in onlineTasks
 	// or it should be started
 	for key := range sp.onLineTasks {
 		if _, ok := onlineTasks[key]; !ok {
 			// start the task
-			sp.Start(key)
+			sp.Run(key)
 		}
 	}
 
@@ -400,7 +390,7 @@ func (sp *StrategyPool) StartOnLineTasks() {
 // RunOnLineTasks method runs onLineTasks
 func (sp *StrategyPool) RunOnLineTasks() {
 	// get real online tasks
-	onlineTasks := sp.GetOnlineTasks()
+	onlineTasks := sp.GetOnlineTasks_ATI()
 	// task in sp.onLineTasks should be in onlineTasks
 	// or it should be started
 	for key := range sp.onLineTasks {

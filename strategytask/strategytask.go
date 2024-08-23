@@ -107,7 +107,6 @@ func (st *StrategyTask) CheckRunning() (interface{} , error) {
 }
 
 // - Wait4 method: wait for the cmd change state and return error if any
-// + Is it really needed?
 func (st *StrategyTask) Wait4() error {
 	// check st is running with CheckRunning method
 	// if not running, return error

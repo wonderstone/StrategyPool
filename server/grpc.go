@@ -64,7 +64,7 @@ func (s *server) Register(ctx context.Context, req *pb.RegisterRequest) (*pb.Reg
 }
 
 // Unregister(context.Context, *UnregisterRequest) (*UnregisterResponse, error)
-func (s *server) Unregister(ctx context.Context, req *pb.UnregisterRequest) (*pb.UnregisterResponse, error) {
+func (s *server) UnRegister(ctx context.Context, req *pb.UnregisterRequest) (*pb.UnregisterResponse, error) {
 	// catch error part
 	var err error
 	defer func() {
@@ -187,6 +187,7 @@ func (s *server) CheckRunning(ctx context.Context, req *pb.CheckRunningRequest) 
 }
 
 // Run(context.Context, *RunRequest) (*RunResponse, error)
+// only use Run method to call the task
 func (s *server) Run(ctx context.Context, req *pb.RunRequest) (*pb.RunResponse, error) {
 	// catch error part
 	var err error
@@ -197,6 +198,11 @@ func (s *server) Run(ctx context.Context, req *pb.RunRequest) (*pb.RunResponse, 
 	}()
 	// function part
 	id := req.GetID()
+	// check if the task is already running
+	_, err = tmpsp.CheckRunning(id)
+	if err == nil {
+		return &pb.RunResponse{RunStatus: "already running"}, err
+	}
 	err = tmpsp.Run(id)
 	// return part
 	var status string
@@ -209,28 +215,7 @@ func (s *server) Run(ctx context.Context, req *pb.RunRequest) (*pb.RunResponse, 
 	return &pb.RunResponse{RunStatus: status}, err
 }
 
-// Start(context.Context, *StartRequest) (*StartResponse, error)
-func (s *server) Start(ctx context.Context, req *pb.StartRequest) (*pb.StartResponse, error) {
-	// catch error part
-	var err error
-	defer func() {
-		if r := recover(); r != nil {
-			err = r.(error)
-		}
-	}()
-	// function part
-	id := req.GetID()
-	err = tmpsp.Start(id)
-	// return part
-	var status string
-	if err != nil {
-		status = "failed"
-	} else {
-		status = "success"
-	}
 
-	return &pb.StartResponse{StartStatus: status}, err
-}
 
 // Stop(context.Context, *StopRequest) (*StopResponse, error)
 func (s *server) Stop(ctx context.Context, req *pb.StopRequest) (*pb.StopResponse, error) {
@@ -353,7 +338,7 @@ func (s *server) GetOnlineTasks(ctx context.Context, req *pb.GetOnlineTasksReque
 		}
 	}()
 	// function part
-	onlineTasks := tmpsp.GetOnlineTasks()
+	onlineTasks := tmpsp.GetOnlineTasks_ATI()
 	// return part
 	var onlineTasks_res []string
 	for id := range onlineTasks {
@@ -435,7 +420,7 @@ func (s *server) GetOnLineTasks(ctx context.Context, req *pb.GetOnLineTasksReque
 		}
 	}()
 	// function part
-	onlineTasks := tmpsp.GetOnlineTasks()
+	onlineTasks := tmpsp.GetOnlineTasks_ATI()
 	// return part
 	var onlineTasks_res []string
 	for id := range onlineTasks {

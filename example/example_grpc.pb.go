@@ -120,7 +120,7 @@ type StrategyPoolClient interface {
 	// & Method Section 3: Task Related
 	CheckRunning(ctx context.Context, in *CheckRunningRequest, opts ...grpc.CallOption) (*CheckRunningResponse, error)
 	Run(ctx context.Context, in *RunRequest, opts ...grpc.CallOption) (*RunResponse, error)
-	Start(ctx context.Context, in *StartRequest, opts ...grpc.CallOption) (*StartResponse, error)
+	// rpc Start (StartRequest) returns (StartResponse) {}
 	Stop(ctx context.Context, in *StopRequest, opts ...grpc.CallOption) (*StopResponse, error)
 	StopAll(ctx context.Context, in *StopAllRequest, opts ...grpc.CallOption) (*StopAllResponse, error)
 	GetTask(ctx context.Context, in *GetTaskInfoRequest, opts ...grpc.CallOption) (*GetTaskInfoResponse, error)
@@ -210,15 +210,6 @@ func (c *strategyPoolClient) CheckRunning(ctx context.Context, in *CheckRunningR
 func (c *strategyPoolClient) Run(ctx context.Context, in *RunRequest, opts ...grpc.CallOption) (*RunResponse, error) {
 	out := new(RunResponse)
 	err := c.cc.Invoke(ctx, "/example.StrategyPool/Run", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
-func (c *strategyPoolClient) Start(ctx context.Context, in *StartRequest, opts ...grpc.CallOption) (*StartResponse, error) {
-	out := new(StartResponse)
-	err := c.cc.Invoke(ctx, "/example.StrategyPool/Start", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -349,7 +340,7 @@ type StrategyPoolServer interface {
 	// & Method Section 3: Task Related
 	CheckRunning(context.Context, *CheckRunningRequest) (*CheckRunningResponse, error)
 	Run(context.Context, *RunRequest) (*RunResponse, error)
-	Start(context.Context, *StartRequest) (*StartResponse, error)
+	// rpc Start (StartRequest) returns (StartResponse) {}
 	Stop(context.Context, *StopRequest) (*StopResponse, error)
 	StopAll(context.Context, *StopAllRequest) (*StopAllResponse, error)
 	GetTask(context.Context, *GetTaskInfoRequest) (*GetTaskInfoResponse, error)
@@ -393,9 +384,6 @@ func (UnimplementedStrategyPoolServer) CheckRunning(context.Context, *CheckRunni
 }
 func (UnimplementedStrategyPoolServer) Run(context.Context, *RunRequest) (*RunResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Run not implemented")
-}
-func (UnimplementedStrategyPoolServer) Start(context.Context, *StartRequest) (*StartResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method Start not implemented")
 }
 func (UnimplementedStrategyPoolServer) Stop(context.Context, *StopRequest) (*StopResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method Stop not implemented")
@@ -586,24 +574,6 @@ func _StrategyPool_Run_Handler(srv interface{}, ctx context.Context, dec func(in
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(StrategyPoolServer).Run(ctx, req.(*RunRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
-func _StrategyPool_Start_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StrategyPoolServer).Start(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/example.StrategyPool/Start",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StrategyPoolServer).Start(ctx, req.(*StartRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
@@ -862,10 +832,6 @@ var StrategyPool_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "Run",
 			Handler:    _StrategyPool_Run_Handler,
-		},
-		{
-			MethodName: "Start",
-			Handler:    _StrategyPool_Start_Handler,
 		},
 		{
 			MethodName: "Stop",
