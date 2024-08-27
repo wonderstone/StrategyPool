@@ -283,7 +283,18 @@ func (s *server) GetTask(ctx context.Context, req *pb.GetTaskInfoRequest) (*pb.G
 	if err != nil {
 		status = "failed"
 	} else {
-		status = "success"
+		switch taskinfo.Stsinfo.Status {
+		case sp.Online:
+			status = "running"
+		case sp.Offline:
+			status = "not started"
+		case sp.Offline_Done:
+			status = "Done"
+		case sp.Offline_Terminated:
+			status = "Terminated"
+		case sp.Offline_Other:
+			status = "Offline by Other reasons"
+		}
 	}
 
 	return &pb.GetTaskInfoResponse{TaskInfo: &pb.TaskInfo{

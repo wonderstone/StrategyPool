@@ -5,6 +5,8 @@ import (
 	"log"
 	"time"
 
+	// "time"
+
 	pb "wonderstone/strategy_pool/example"
 
 	"google.golang.org/grpc/credentials/insecure"
@@ -96,17 +98,26 @@ func main() {
 
 	log.Printf("Message: %s", resp9.GetRunStatus())
 
-	// Sleep for 5 seconds
-	time.Sleep(60 * time.Second)
-	// // @ Stop method
-	// resp10, err := c2.Stop(context.Background(), &pb.StopRequest{ID: "1"})
-	// if err != nil {
-	// 	log.Fatalf("Failed to call Stop: %v", err)
-	// }
+	// $ Sleep for 5 seconds
+	// $ wait for the task to start and update the pid
+	// $ then call the Stop method
+	time.Sleep(5 * time.Second)
+	// @ Stop method
+	resp10, err := c2.Stop(context.Background(), &pb.StopRequest{ID: "1"})
+	if err != nil {
+		log.Fatalf("Failed to call Stop: %v", err)
+	}
 
-	// log.Printf("Message: %s", resp10.GetStopStatus())
+	log.Printf("Message: %s", resp10.GetStopStatus())
 
-	// @ CheckRunning method
+	// @ GetTask method
+	resp11, err := c2.GetTask(context.Background(), &pb.GetTaskInfoRequest{ID: "1"})
+	if err != nil {
+		log.Fatalf("Failed to call GetTask: %v", err)
+	}
+
+	log.Printf("Message: %s", resp11.GetTaskInfo())
+
 
 
 
