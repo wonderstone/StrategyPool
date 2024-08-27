@@ -103,6 +103,7 @@ func main() {
 	// $ then call the Stop method
 	time.Sleep(5 * time.Second)
 	// @ Stop method
+	log.Printf("Stopping the task")
 	resp10, err := c2.Stop(context.Background(), &pb.StopRequest{ID: "1"})
 	if err != nil {
 		log.Fatalf("Failed to call Stop: %v", err)
@@ -111,6 +112,10 @@ func main() {
 	log.Printf("Message: %s", resp10.GetStopStatus())
 
 	// @ GetTask method
+	// $ Sleep for 5 seconds
+	// $ wait for the task to stop and update the pid
+	// $ then call the Stop method
+	time.Sleep(5 * time.Second)
 	resp11, err := c2.GetTask(context.Background(), &pb.GetTaskInfoRequest{ID: "1"})
 	if err != nil {
 		log.Fatalf("Failed to call GetTask: %v", err)

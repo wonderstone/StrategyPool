@@ -75,6 +75,7 @@ func (sp *StrategyPool) Init() {
 	// all sp status update will count on this goroutine
 	go func() {
 		for stgStatusErr := range sp.StgErrorCh {
+			sp.m.Lock()
 
 			// todo: delete following line
 			// fmt.Println("stgStatusError info From channel:", stgStatusErr)
@@ -83,33 +84,30 @@ func (sp *StrategyPool) Init() {
 			temp.Stsinfo = stgStatusErr.StsInfo
 			switch stgStatusErr.StsInfo.Status {
 			case Online:
-				// get the lock
-				sp.m.Lock()
+				// update the temp task status
+				temp.Stsinfo.Status = Online
 				// add pid to finalCheckPids
 				sp.finalCheckPids[stgStatusErr.ID] = stgStatusErr.StsInfo.pid.(int)
 				// fmt.Println("finalCheckPids-online:", sp.finalCheckPids)
-				callback("start")
-				// release the lock
-				sp.m.Unlock()
+				callback(fmt.Sprintf("The task %s started", stgStatusErr.ID))
+
 			case Offline_Done, Offline_Terminated, Offline_Other:
-				// get the lock
-				sp.m.Lock()
+
+				// update the temp task status
+				temp.Stsinfo.Status = stgStatusErr.StsInfo.Status
 				// change task pid to nil
 				temp.Task.SetPid(nil)
 				// remove pid from finalCheckPids
 				delete(sp.finalCheckPids, stgStatusErr.ID)
 				// fmt.Println("finalCheckPids-offline:", sp.finalCheckPids)
-				// release the lock
-				callback("stop~~!!")
-				sp.m.Unlock()
+				callback(fmt.Sprintf("The task %s stopped", stgStatusErr.ID))
+
 			}
 			// update allTaskStatus
-			// get the lock
-			sp.m.Lock()
 			sp.allTaskInfo[stgStatusErr.ID] = temp
-			// release the lock
-			callback("update the taskInfo")
-			sp.m.Unlock()
+		    sp.m.Unlock()
+
+			callback(fmt.Sprintf("The task %s status updated", stgStatusErr.ID))
 		}
 	}()
 }

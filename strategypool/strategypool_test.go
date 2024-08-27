@@ -100,14 +100,18 @@ func TestTaskRelated(t *testing.T) {
 	if err != nil {
 		t.Errorf("Expected error to be nil, got %v", err)
 	}
+	time.Sleep(5 * time.Second)
 
-	time.Sleep(70 * time.Second)
-	fmt.Println("sleep 60s")
-	// // Start a task
-	// err = sp.Start(id)
-	// if err != nil {
-	// 	t.Errorf("Expected error to be nil, got %v", err)
-	// }
+	// check the state of the task
+	fmt.Println("After Run the task: ",StatusStr(sp.allTaskInfo[id].Stsinfo.Status))
+
+	time.Sleep(65 * time.Second)
+
+	fmt.Println("sleep 65s")
+
+	// check the state of the task
+	fmt.Println("when the task should be done",StatusStr(sp.allTaskInfo[id].Stsinfo.Status))
+
 
 	// // Stop a task
 	// err = sp.Stop(id)
@@ -133,4 +137,22 @@ func TestTaskRelated(t *testing.T) {
 
 	// // 
 
+}
+
+// output status func:
+func StatusStr(status Status) string{
+	switch status {
+	case Online:
+		return "Online"
+	case Offline:
+		return "Offline"
+	case Offline_Done:
+		return "Offline_Done"
+	case Offline_Terminated:
+		return "Offline_Terminated"
+	case Offline_Other:
+		return "Offline_Other"
+	default:
+		return "Unknown"
+	}
 }
