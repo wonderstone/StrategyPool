@@ -37,7 +37,7 @@ type stgStatusError struct {
 
 // - StrategyPool is used to store strategytasks
 type StrategyPool struct {
-	allTaskInfo    map[string]taskInfo
+	allTaskInfo    map[string]*taskInfo
 	finalCheckPids map[string]int // tasks pid that should be stopped by method Stop
 	StgErrorCh     chan stgStatusError
 	// onLineTasks is the target tasks that should be running
@@ -50,7 +50,7 @@ type StrategyPool struct {
 // - NewStrategyPool returns a new strategypool
 func NewStrategyPool() *StrategyPool {
 	return &StrategyPool{
-		allTaskInfo:    make(map[string]taskInfo),
+		allTaskInfo:    make(map[string]*taskInfo),
 		finalCheckPids: make(map[string]int),
 		StgErrorCh:     make(chan stgStatusError),
 		onLineTasks:    make(map[string]void),
@@ -81,7 +81,6 @@ func (sp *StrategyPool) Init() {
 			// fmt.Println("stgStatusError info From channel:", stgStatusErr)
 			// update allTaskStatus according to stgStatusErr.sts
 			temp := sp.allTaskInfo[stgStatusErr.ID]
-			temp.Stsinfo = stgStatusErr.StsInfo
 			switch stgStatusErr.StsInfo.Status {
 			case Online:
 				// update the temp task status
@@ -90,8 +89,28 @@ func (sp *StrategyPool) Init() {
 				sp.finalCheckPids[stgStatusErr.ID] = stgStatusErr.StsInfo.pid.(int)
 				// fmt.Println("finalCheckPids-online:", sp.finalCheckPids)
 				callback(fmt.Sprintf("The task %s started", stgStatusErr.ID))
+				// update allTaskStatus
+				sp.allTaskInfo[stgStatusErr.ID] = temp
+				callback(fmt.Sprintf("The task %s status updated", stgStatusErr.ID))
 
-			case Offline_Done, Offline_Terminated, Offline_Other:
+			case Offline_Done:
+				// update the temp task status
+				if temp.Stsinfo.Status == Online {
+					temp.Stsinfo.Status = Offline_Done
+					// change task pid to nil
+					temp.Task.SetPid(nil)
+					// remove pid from finalCheckPids
+					delete(sp.finalCheckPids, stgStatusErr.ID)
+					// fmt.Println("finalCheckPids-offline_done:", sp.finalCheckPids)
+					callback(fmt.Sprintf("The task %s done", stgStatusErr.ID))
+					// update allTaskStatus
+					sp.allTaskInfo[stgStatusErr.ID] = temp
+					callback(fmt.Sprintf("The task %s status updated", stgStatusErr.ID))
+
+				}
+				
+
+			case Offline_Terminated, Offline_Other:
 
 				// update the temp task status
 				temp.Stsinfo.Status = stgStatusErr.StsInfo.Status
@@ -101,13 +120,14 @@ func (sp *StrategyPool) Init() {
 				delete(sp.finalCheckPids, stgStatusErr.ID)
 				// fmt.Println("finalCheckPids-offline:", sp.finalCheckPids)
 				callback(fmt.Sprintf("The task %s stopped", stgStatusErr.ID))
+				// update allTaskStatus
+				sp.allTaskInfo[stgStatusErr.ID] = temp
+				callback(fmt.Sprintf("The task %s status updated", stgStatusErr.ID))
 
 			}
-			// update allTaskStatus
-			sp.allTaskInfo[stgStatusErr.ID] = temp
+			
 		    sp.m.Unlock()
 
-			callback(fmt.Sprintf("The task %s status updated", stgStatusErr.ID))
 		}
 	}()
 }
@@ -117,7 +137,7 @@ func (sp *StrategyPool) Init() {
 // & Method Section 2: All-Task Map Related
 // ~ Method Register that add a strategytask to the strategypool allTasks
 func (sp *StrategyPool) Register(task *st.StrategyTask, args []string) {
-	sp.allTaskInfo[task.ID] = taskInfo{task, statusInfo{Offline, nil}, args}
+	sp.allTaskInfo[task.ID] = &taskInfo{task, statusInfo{Offline, nil}, args}
 }
 
 // ~ Method UnRegister that remove a strategytask from the strategypool allTasks
@@ -151,12 +171,12 @@ func (sp *StrategyPool) ReloadArgs(taskID string, args []string) error {
 // ~ Method GetTaskInfos returns all task infos
 // ! Avoid using this method to manipulate the task
 // = Just output the task info
-func (sp *StrategyPool) GetTaskInfos() map[string]taskInfo {
+func (sp *StrategyPool) GetTaskInfos() map[string]*taskInfo {
 	return sp.allTaskInfo
 }
 
 // ~ Method GetTaskInfo returns a task info
-func (sp *StrategyPool) GetTaskInfo(taskID string) (taskInfo, error) {
+func (sp *StrategyPool) GetTaskInfo(taskID string) (*taskInfo, error) {
 	taskInfo, ok := sp.allTaskInfo[taskID]
 	if ok {
 		return taskInfo, nil
@@ -270,7 +290,7 @@ func (sp *StrategyPool) GetTaskStatus(taskID string) (Status, error) {
 		fmt.Println("pid:", pid, "err:", err)
 		if err == nil {
 			tmpstatusInfo := statusInfo{Online, pid}
-			sp.allTaskInfo[taskID] = taskInfo{task, tmpstatusInfo, sp.allTaskInfo[taskID].Args}
+			sp.allTaskInfo[taskID] = &taskInfo{task, tmpstatusInfo, sp.allTaskInfo[taskID].Args}
 		}
 		return sp.allTaskInfo[taskID].Stsinfo.Status, nil
 	}

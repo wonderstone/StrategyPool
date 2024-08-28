@@ -100,7 +100,14 @@ func TestTaskRelated(t *testing.T) {
 	if err != nil {
 		t.Errorf("Expected error to be nil, got %v", err)
 	}
-	time.Sleep(5 * time.Second)
+	time.Sleep(1 * time.Second)
+
+	// GetOnlineTasks
+	onlineTasks := sp.GetOnlineTasks_ATI()
+	fmt.Println(onlineTasks)
+	// GetOfflineTasks
+	offlineTasks := sp.GetOfflineTasks()
+	fmt.Println(offlineTasks)
 
 	// check the state of the task
 	fmt.Println("After Run the task: ",StatusStr(sp.allTaskInfo[id].Stsinfo.Status))
@@ -112,32 +119,52 @@ func TestTaskRelated(t *testing.T) {
 	// check the state of the task
 	fmt.Println("when the task should be done",StatusStr(sp.allTaskInfo[id].Stsinfo.Status))
 
+	// Run a task with status info
+	err = sp.Run(id)
+	if err != nil {
+		t.Errorf("Expected error to be nil, got %v", err)
+	}
+	time.Sleep(5 * time.Second)
 
-	// // Stop a task
-	// err = sp.Stop(id)
-	// if err != nil {
-	// 	t.Errorf("Expected error to be nil, got %v", err)
-	// }
+	// ~ stop the task
+	err = sp.Stop(id)
+	if err != nil {
+		t.Errorf("Expected error to be nil, got %v", err)
+	}
+	time.Sleep(5 * time.Second)
 
+	fmt.Println("After Stop the task: ",StatusStr(sp.allTaskInfo[id].Stsinfo.Status))
 
-	// // start 2 tasks
-	// err = sp.Start(id)
-	// if err != nil {
-	// 	t.Errorf("Expected error to be nil, got %v", err)
-	// }
+	// // GetTask
+	time.Sleep(5 * time.Second)
+	task,err := sp.GetTask(id)
+	if err != nil {
+		t.Errorf("Expected error to be nil, got %v", err)
+	}
+	fmt.Println("GetTask: ",task.BinaryLocation, task.ID)
 
-	// err = sp.Start(id1)
-	// if err != nil {
-	// 	t.Errorf("Expected error to be nil, got %v", err)
-	// }
+	// GetTaskInfo
+	taskInfo,err := sp.GetTaskInfo(id)
+	if err != nil {
+		t.Errorf("Expected error to be nil, got %v", err)
+	}
 
-	// // GetOnlineTasks
-	// onlineTasks := sp.GetOnlineTasks()
-	// fmt.Println(onlineTasks)
+	fmt.Println("GetTaskInfo: ",taskInfo.Task.BinaryLocation, taskInfo.Task.ID)
 
-	// // 
+	// GetTaskStatus
+	taskStatus,err := sp.GetTaskStatus(id)
+	if err != nil {
+		t.Errorf("Expected error to be nil, got %v", err)
+	}
+
+	fmt.Println("GetTaskStatus: ",StatusStr(taskStatus))
+
 
 }
+
+
+
+// test 
 
 // output status func:
 func StatusStr(status Status) string{
