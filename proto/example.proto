@@ -46,7 +46,6 @@ service StrategyPool {
     rpc AddOnLineTasks (AddOnLineTasksRequest) returns (AddOnLineTasksResponse) {}
     rpc RemoveOnLineTasks (RemoveOnLineTasksRequest) returns (RemoveOnLineTasksResponse) {}
     rpc GetOnLineTasks (GetOnLineTasksRequest) returns (GetOnLineTasksResponse) {}
-    rpc StartOnLineTasks (StartOnLineTasksRequest) returns (StartOnLineTasksResponse) {}
     rpc RunOnLineTasks (RunOnLineTasksRequest) returns (RunOnLineTasksResponse) {}
     rpc CheckOnLineTasks (CheckOnLineTasksRequest) returns (CheckOnLineTasksResponse) {}
 
@@ -202,13 +201,6 @@ message GetOnLineTasksResponse {
     repeated string OnLineTasks = 1;
 }
 
-message StartOnLineTasksRequest {
-
-}
-
-message StartOnLineTasksResponse {
-    string StartOnLineTasksStatus = 1;
-}
 
 message RunOnLineTasksRequest {
 

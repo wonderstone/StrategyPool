@@ -380,29 +380,7 @@ func (sp *StrategyPool) GetonLineTasks_target() map[string]void {
 	return sp.onLineTasks
 }
 
-// -Method StartonLineTasks
-// StartOnLineTasks method starts onLineTasks
-func (sp *StrategyPool) StartOnLineTasks() {
-	// get real online tasks
-	onlineTasks := sp.GetOnlineTasks_ATI()
-	// task in sp.onLineTasks should be in onlineTasks
-	// or it should be started
-	for key := range sp.onLineTasks {
-		if _, ok := onlineTasks[key]; !ok {
-			// start the task
-			sp.Run(key)
-		}
-	}
 
-	// task in onlineTasks should be in sp.onLineTasks
-	// or it should be stopped
-	for key := range onlineTasks {
-		if _, ok := sp.onLineTasks[key]; !ok {
-			// stop the task
-			sp.Stop(key)
-		}
-	}
-}
 
 //-Method RunOnLineTasks
 // RunOnLineTasks method runs onLineTasks

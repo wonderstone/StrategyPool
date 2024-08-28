@@ -131,7 +131,6 @@ type StrategyPoolClient interface {
 	AddOnLineTasks(ctx context.Context, in *AddOnLineTasksRequest, opts ...grpc.CallOption) (*AddOnLineTasksResponse, error)
 	RemoveOnLineTasks(ctx context.Context, in *RemoveOnLineTasksRequest, opts ...grpc.CallOption) (*RemoveOnLineTasksResponse, error)
 	GetOnLineTasks(ctx context.Context, in *GetOnLineTasksRequest, opts ...grpc.CallOption) (*GetOnLineTasksResponse, error)
-	StartOnLineTasks(ctx context.Context, in *StartOnLineTasksRequest, opts ...grpc.CallOption) (*StartOnLineTasksResponse, error)
 	RunOnLineTasks(ctx context.Context, in *RunOnLineTasksRequest, opts ...grpc.CallOption) (*RunOnLineTasksResponse, error)
 	CheckOnLineTasks(ctx context.Context, in *CheckOnLineTasksRequest, opts ...grpc.CallOption) (*CheckOnLineTasksResponse, error)
 }
@@ -297,15 +296,6 @@ func (c *strategyPoolClient) GetOnLineTasks(ctx context.Context, in *GetOnLineTa
 	return out, nil
 }
 
-func (c *strategyPoolClient) StartOnLineTasks(ctx context.Context, in *StartOnLineTasksRequest, opts ...grpc.CallOption) (*StartOnLineTasksResponse, error) {
-	out := new(StartOnLineTasksResponse)
-	err := c.cc.Invoke(ctx, "/example.StrategyPool/StartOnLineTasks", in, out, opts...)
-	if err != nil {
-		return nil, err
-	}
-	return out, nil
-}
-
 func (c *strategyPoolClient) RunOnLineTasks(ctx context.Context, in *RunOnLineTasksRequest, opts ...grpc.CallOption) (*RunOnLineTasksResponse, error) {
 	out := new(RunOnLineTasksResponse)
 	err := c.cc.Invoke(ctx, "/example.StrategyPool/RunOnLineTasks", in, out, opts...)
@@ -351,7 +341,6 @@ type StrategyPoolServer interface {
 	AddOnLineTasks(context.Context, *AddOnLineTasksRequest) (*AddOnLineTasksResponse, error)
 	RemoveOnLineTasks(context.Context, *RemoveOnLineTasksRequest) (*RemoveOnLineTasksResponse, error)
 	GetOnLineTasks(context.Context, *GetOnLineTasksRequest) (*GetOnLineTasksResponse, error)
-	StartOnLineTasks(context.Context, *StartOnLineTasksRequest) (*StartOnLineTasksResponse, error)
 	RunOnLineTasks(context.Context, *RunOnLineTasksRequest) (*RunOnLineTasksResponse, error)
 	CheckOnLineTasks(context.Context, *CheckOnLineTasksRequest) (*CheckOnLineTasksResponse, error)
 	mustEmbedUnimplementedStrategyPoolServer()
@@ -411,9 +400,6 @@ func (UnimplementedStrategyPoolServer) RemoveOnLineTasks(context.Context, *Remov
 }
 func (UnimplementedStrategyPoolServer) GetOnLineTasks(context.Context, *GetOnLineTasksRequest) (*GetOnLineTasksResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetOnLineTasks not implemented")
-}
-func (UnimplementedStrategyPoolServer) StartOnLineTasks(context.Context, *StartOnLineTasksRequest) (*StartOnLineTasksResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method StartOnLineTasks not implemented")
 }
 func (UnimplementedStrategyPoolServer) RunOnLineTasks(context.Context, *RunOnLineTasksRequest) (*RunOnLineTasksResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method RunOnLineTasks not implemented")
@@ -740,24 +726,6 @@ func _StrategyPool_GetOnLineTasks_Handler(srv interface{}, ctx context.Context, 
 	return interceptor(ctx, in, info, handler)
 }
 
-func _StrategyPool_StartOnLineTasks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(StartOnLineTasksRequest)
-	if err := dec(in); err != nil {
-		return nil, err
-	}
-	if interceptor == nil {
-		return srv.(StrategyPoolServer).StartOnLineTasks(ctx, in)
-	}
-	info := &grpc.UnaryServerInfo{
-		Server:     srv,
-		FullMethod: "/example.StrategyPool/StartOnLineTasks",
-	}
-	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(StrategyPoolServer).StartOnLineTasks(ctx, req.(*StartOnLineTasksRequest))
-	}
-	return interceptor(ctx, in, info, handler)
-}
-
 func _StrategyPool_RunOnLineTasks_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(RunOnLineTasksRequest)
 	if err := dec(in); err != nil {
@@ -868,10 +836,6 @@ var StrategyPool_ServiceDesc = grpc.ServiceDesc{
 		{
 			MethodName: "GetOnLineTasks",
 			Handler:    _StrategyPool_GetOnLineTasks_Handler,
-		},
-		{
-			MethodName: "StartOnLineTasks",
-			Handler:    _StrategyPool_StartOnLineTasks_Handler,
 		},
 		{
 			MethodName: "RunOnLineTasks",

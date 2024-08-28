@@ -440,26 +440,6 @@ func (s *server) GetOnLineTasks(ctx context.Context, req *pb.GetOnLineTasksReque
 	return &pb.GetOnLineTasksResponse{OnLineTasks: onlineTasks_res}, err
 }
 
-// StartOnLineTasks(context.Context, *StartOnLineTasksRequest) (*StartOnLineTasksResponse, error)
-func (s *server) StartOnLineTasks(ctx context.Context, req *pb.StartOnLineTasksRequest) (*pb.StartOnLineTasksResponse, error) {
-	// catch error part
-	var err error
-	defer func() {
-		if r := recover(); r != nil {
-			err = r.(error)
-		}
-	}()
-	// function part
-	tmpsp.StartOnLineTasks()
-	// return part
-	var status string
-	if err != nil {
-		status = "failed"
-	} else {
-		status = "success"
-	}
-	return &pb.StartOnLineTasksResponse{StartOnLineTasksStatus: status}, err
-}
 
 // RunOnLineTasks(context.Context, *RunOnLineTasksRequest) (*RunOnLineTasksResponse, error)
 func (s *server) RunOnLineTasks(ctx context.Context, req *pb.RunOnLineTasksRequest) (*pb.RunOnLineTasksResponse, error) {

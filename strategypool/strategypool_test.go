@@ -162,7 +162,35 @@ func TestTaskRelated(t *testing.T) {
 
 }
 
+// test onLineTasks
+func TestOnLineTasks(t *testing.T) {
 
+	id := uuid.New().String()
+	binaryLocation := "./tasks/task"
+	tmpTask := st.NewStrategyTask(id, binaryLocation)
+	id1 := uuid.New().String()
+	binaryLocation1 := "./tasks/task1"
+	tmpTask1 := st.NewStrategyTask(id1, binaryLocation1)
+
+
+	sp := NewStrategyPool()
+	sp.Init()
+	sp.Register(tmpTask,[]string{})
+	sp.Register(tmpTask1,[]string{})
+	
+	// AddOnLineTasks
+	sp.AddOnLineTasks(id,id1)
+
+	// RemoveOnLineTasks
+	sp.RemoveOnLineTasks(id)
+
+	// GetonLineTasks_target
+	
+
+	// RunOnLineTasks
+
+	// CheckOnLineTasks
+}
 
 // test 
 
