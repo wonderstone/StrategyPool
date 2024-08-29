@@ -124,10 +124,32 @@ func main() {
 	log.Printf("Message: %s", resp11.GetTaskInfo())
 
 
+	// AddOnLineTasks
+	resp12, err := c2.AddOnLineTasks(context.Background(), &pb.AddOnLineTasksRequest{IDs: []string{"1", "2"}})
+	if err != nil {
+		log.Fatalf("Failed to call AddOnLineTasks: %v", err)
+	}
+
+	log.Printf("Message: %s", resp12.GetAddOnLineTasksStatus())
 
 
+	// RunOnLineTasks
+	resp13, err := c2.RunOnLineTasks(context.Background(), &pb.RunOnLineTasksRequest{})
+	if err != nil {
+		log.Fatalf("Failed to call RunOnLineTasks: %v", err)
+	}
 
+	log.Printf("Message: %s", resp13.GetRunOnLineTasksStatus())
 
+	// give server some time to start the tasks
+	time.Sleep(5 * time.Second)
+	// CheckOnLineTasks
+	resp14, err := c2.CheckOnLineTasks(context.Background(), &pb.CheckOnLineTasksRequest{})
+	if err != nil {
+		log.Fatalf("Failed to call CheckOnLineTasks: %v", err)
+	}
+
+	log.Printf("Message: %s", resp14.GetCheckOnLineTasksStatus())
 
 
 
