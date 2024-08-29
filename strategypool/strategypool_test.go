@@ -169,7 +169,7 @@ func TestOnLineTasks(t *testing.T) {
 	binaryLocation := "./tasks/task"
 	tmpTask := st.NewStrategyTask(id, binaryLocation)
 	id1 := uuid.New().String()
-	binaryLocation1 := "./tasks/task1"
+	binaryLocation1 := "./tasks/task"
 	tmpTask1 := st.NewStrategyTask(id1, binaryLocation1)
 
 
@@ -185,11 +185,27 @@ func TestOnLineTasks(t *testing.T) {
 	sp.RemoveOnLineTasks(id)
 
 	// GetonLineTasks_target
+
+	tmpTasks := sp.GetonLineTasks_target()
+	fmt.Println(tmpTasks)
+
 	
 
 	// RunOnLineTasks
+	sp.RunOnLineTasks()
 
+	time.Sleep(5 * time.Second)
 	// CheckOnLineTasks
+	res, err :=  sp.CheckOnLineTasks()
+	if err != nil {
+		t.Errorf("Expected error to be nil, got %v", err)
+	}
+
+	fmt.Println("CheckOnLineTasks: ",res)
+
+
+
+
 }
 
 // test 
